@@ -1,5 +1,8 @@
 .idea
 
+**/megaphone
+**/obj
+
 *.dylib
 *.out
 *.o
