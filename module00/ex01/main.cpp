@@ -1,14 +1,13 @@
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
 
 int	main()
 {
-	char cmd[7];
-	Contact contact;
+//	std::string cmd;
 	PhoneBook phoneBook;
+	Contact contact;
 
-	std::cout << "Chose your cmd: ";
-	std::cin.getline(cmd, 7);
-	std::cout << "cmd is " << cmd << std::endl;
+//	std::cout << "Choose your cmd: ";
+//	std::getline(std::cin, cmd, '\n');
+//	std::cout << "cmd is " << cmd << std::endl;
 	return 0;
 }
