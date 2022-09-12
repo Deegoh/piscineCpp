@@ -48,12 +48,38 @@ void PhoneBook::printContact(int i) {
 	std::cout << "Secret:     " << this->contacts[i].getSecret() << std::endl;
 }
 
+void formatPrinter(std::string str) {
+	int	length;
+
+	length = str.length();
+	if (length > 10)
+		std::cout << str.substr(0, 9).append(".");
+	else
+	{
+		std::cout << str;
+		while (length < 10)
+		{
+			std::cout << " ";
+			length++;
+		}
+	}
+	std::cout << "|";
+}
+
 void PhoneBook::searchAndPrint(int i) {
 
-	(void)i;
-	std::cout << "+------------+------------+------------+------------+" << std::endl;
-	std::cout << "| Index #    | First Name | Last Name  | Nick Name  |" << std::endl;
-	std::cout << "+------------+------------+------------+------------+" << std::endl;
-//	std::cout << "| " << i << " | " << this->contacts[i].getFirstName().substr(0, 10) << " | " << " | " << " |" << std::endl;
-	std::cout << "+------------+------------+------------+------------+" << std::endl;
+	if (this->contacts[i - 1].getFirstName().empty())
+	{
+		std::cout << "Choose a existing contact" << std::endl;
+		return;
+	}
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|Index #   |First Name|Last Name |Nick Name |" << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "|" << i << "         |";
+	formatPrinter(this->contacts[i - 1].getFirstName());
+	formatPrinter(this->contacts[i - 1].getLastName());
+	formatPrinter(this->contacts[i - 1].getNickName());
+	std::cout << std::endl;
+	std::cout << "+----------+----------+----------+----------+" << std::endl;
 }
