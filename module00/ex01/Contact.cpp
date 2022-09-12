@@ -2,20 +2,15 @@
 
 Contact::Contact() {
 	std::cout << "Contact Constructor called" << std::endl;
-	setFirstName("Tiago");
-	std::cout << "this->fN = " << getFirstName() << std::endl;
-	setLastName("Pinto Monteiro");
-	std::cout << "this->lN = " << getLastName() << std::endl;
-	setNickName("Deegoh");
-	std::cout << "this->nN = " << getNickName() << std::endl;
-	setPhone("078 765 15 91");
-	std::cout << "this->phone = " << getPhone() << std::endl;
-	setSecret("J'aime les fraises UwU");
-	std::cout << "this->secret = " << getSecret() << std::endl;
 }
 
 Contact::~Contact() {
 	std::cout << "Contact Destructor called" << std::endl;
+}
+
+void	printContact(int i) {
+	//	this.con
+	(void)i;
 }
 
 std::string	Contact::getFirstName() const {

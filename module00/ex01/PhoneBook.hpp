@@ -7,7 +7,12 @@ class PhoneBook {
 public:
 	PhoneBook();
 	~PhoneBook();
-//	addContact();
+
+	void addContact();
+	void printContact(int i);
+	void searchAndPrint(int i);
+
+	int getNbContact() const;
 private:
 	Contact contacts[8];
 	int _nbContact;
