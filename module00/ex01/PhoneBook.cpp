@@ -1,12 +1,12 @@
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook() {
-	std::cout << "PhoneBook Constructor called" << std::endl;
+//	std::cout << "PhoneBook Constructor called" << std::endl;
 	this->_nbContact = 0;
 }
 
 PhoneBook::~PhoneBook() {
-	std::cout << "PhoneBook Destructor called" << std::endl;
+//	std::cout << "PhoneBook Destructor called" << std::endl;
 }
 
 std::string getDataCin(std::string str)
@@ -48,38 +48,52 @@ void PhoneBook::printContact(int i) {
 	std::cout << "Secret:     " << this->contacts[i].getSecret() << std::endl;
 }
 
-void formatPrinter(std::string str) {
+void formatPrinter(std::string key, std::string value) {
 	int	length;
 
-	length = str.length();
+	std::cout << "│";
+	length = key.length();
 	if (length > 10)
-		std::cout << str.substr(0, 9).append(".");
+		std::cout << key.substr(0, 9).append(".");
 	else
 	{
-		std::cout << str;
+		std::cout << key;
 		while (length < 10)
 		{
 			std::cout << " ";
 			length++;
 		}
 	}
-	std::cout << "|";
+	std::cout << "│";
+	length = value.length();
+	if (length > 10)
+		std::cout << value.substr(0, 9).append(".");
+	else
+	{
+		std::cout << value;
+		while (length < 10)
+		{
+			std::cout << " ";
+			length++;
+		}
+	}
+	std::cout << "│" << std::endl;
 }
 
 void PhoneBook::searchAndPrint(int i) {
 
-	if (this->contacts[i - 1].getFirstName().empty())
+	if (i > 8 || i < 1 || this->contacts[i - 1].getFirstName().empty())
 	{
 		std::cout << "Choose a existing contact" << std::endl;
 		return;
 	}
-	std::cout << "+----------+----------+----------+----------+" << std::endl;
-	std::cout << "|Index #   |First Name|Last Name |Nick Name |" << std::endl;
-	std::cout << "+----------+----------+----------+----------+" << std::endl;
-	std::cout << "|" << i << "         |";
-	formatPrinter(this->contacts[i - 1].getFirstName());
-	formatPrinter(this->contacts[i - 1].getLastName());
-	formatPrinter(this->contacts[i - 1].getNickName());
-	std::cout << std::endl;
-	std::cout << "+----------+----------+----------+----------+" << std::endl;
+	std::cout << "┌──────────┬──────────┐" << std::endl;
+	std::cout << "│Index #   │" << i << "         │" << std::endl;
+	std::cout << "├──────────┼──────────┤" << std::endl;
+	formatPrinter("First Name", this->contacts[i - 1].getFirstName());
+	std::cout << "├──────────┼──────────┤" << std::endl;
+	formatPrinter("Last Name", this->contacts[i - 1].getLastName());
+	std::cout << "├──────────┼──────────┤" << std::endl;
+	formatPrinter("Nick Name", this->contacts[i - 1].getNickName());
+	std::cout << "└──────────┴──────────┘" << std::endl;
 }

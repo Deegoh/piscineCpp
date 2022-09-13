@@ -22,7 +22,6 @@ public:
 	void		setSecret(std::string str);
 	std::string	getSecret(void) const;
 
-	void		printContact(int i);
 private:
 	std::string _firstName;
 	std::string _lastName;

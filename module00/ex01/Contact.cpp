@@ -1,16 +1,11 @@
 #include "Contact.hpp"
 
 Contact::Contact() {
-	std::cout << "Contact Constructor called" << std::endl;
+//	std::cout << "Contact Constructor called" << std::endl;
 }
 
 Contact::~Contact() {
-	std::cout << "Contact Destructor called" << std::endl;
-}
-
-void	printContact(int i) {
-	//	this.con
-	(void)i;
+//	std::cout << "Contact Destructor called" << std::endl;
 }
 
 std::string	Contact::getFirstName() const {
