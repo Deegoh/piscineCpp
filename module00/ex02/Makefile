@@ -1,5 +1,6 @@
 CC = c++
 CC = g++-12
+RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address

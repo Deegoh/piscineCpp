@@ -40,7 +40,7 @@ Account::Account(int initial_deposit) :
 	this->_accountIndex = indexAccount;
 	indexAccount++;
 	Account::_totalAmount += initial_deposit;
-	Account::_nbAccounts += 1;
+	Account::_nbAccounts++;
 
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
@@ -49,8 +49,8 @@ Account::Account(int initial_deposit) :
 }
 
 Account::~Account() {
-	Account::_totalAmount -= this->getTotalAmount();
-	Account::_nbAccounts -= 1;
+	Account::_totalAmount -= this->_amount;
+	Account::_nbAccounts--;
 
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
