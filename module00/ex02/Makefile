@@ -1,15 +1,12 @@
 CC = c++
 CC = g++-12
-RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
-SRC =	main.cpp\
-		PhoneBook.cpp\
-		Contact.cpp
-HEADER =	PhoneBook.hpp\
-			Contact.hpp
-NAME = phonebook
+SRC =	test.cpp\
+		Account.cpp
+HEADER=	Account.hpp
+NAME = account
 
 OBJ_DIR = obj/
 _OBJ = $(SRC:.cpp=.o)

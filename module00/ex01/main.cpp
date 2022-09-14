@@ -1,9 +1,4 @@
 #include "PhoneBook.hpp"
-#include <stdlib.h>
-
-#define ADD "ADD"
-#define SEARCH "SEARCH"
-#define EXIT "EXIT"
 
 int	main()
 {

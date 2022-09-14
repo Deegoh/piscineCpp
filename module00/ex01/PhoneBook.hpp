@@ -2,6 +2,11 @@
 # define PHONEBOOK_HPP
 # include "Contact.hpp"
 # include <iostream>
+# include <stdlib.h>
+
+# define ADD "ADD"
+# define SEARCH "SEARCH"
+# define EXIT "EXIT"
 
 class PhoneBook {
 public:

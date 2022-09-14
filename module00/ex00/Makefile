@@ -14,18 +14,19 @@ OBJ = $(addprefix $(OBJ_DIR), $(_OBJ))
 
 all: $(NAME)
 
-$(OBJ): $(OBJ_DIR)%.o : %.cpp
+$(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
 
+$(OBJ): $(OBJ_DIR)%.o : %.cpp | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 clean:
-	$(RM) -rf $(OBJ_DIR)
+	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) -rf $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
