@@ -49,34 +49,21 @@ void PhoneBook::printContact(int i) {
 }
 
 void formatPrinter(std::string key, std::string value) {
-	int	length;
 
-	std::cout << "│";
-	length = key.length();
-	if (length > 10)
+	std::cout << std::left << "│";
+	std::cout << std::setw(10);
+	std::cout << std::setfill(' ');
+	if (key.length() > 10)
 		std::cout << key.substr(0, 9).append(".");
 	else
-	{
 		std::cout << key;
-		while (length < 10)
-		{
-			std::cout << " ";
-			length++;
-		}
-	}
 	std::cout << "│";
-	length = value.length();
-	if (length > 10)
+	std::cout << std::setw(10);
+	std::cout << std::setfill(' ');
+	if (value.length() > 10)
 		std::cout << value.substr(0, 9).append(".");
 	else
-	{
 		std::cout << value;
-		while (length < 10)
-		{
-			std::cout << " ";
-			length++;
-		}
-	}
 	std::cout << "│" << std::endl;
 }
 
@@ -88,7 +75,7 @@ void PhoneBook::searchAndPrint(int i) {
 		return;
 	}
 	std::cout << "┌──────────┬──────────┐" << std::endl;
-	std::cout << "│Index #   │" << i << "         │" << std::endl;
+	std::cout << "│Index #   │" << std::setfill(' ') << std::setw(10) << i << "│" << std::endl;
 	std::cout << "├──────────┼──────────┤" << std::endl;
 	formatPrinter("First Name", this->contacts[i - 1].getFirstName());
 	std::cout << "├──────────┼──────────┤" << std::endl;

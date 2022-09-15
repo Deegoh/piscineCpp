@@ -5,10 +5,15 @@ int	main()
 	std::string cmd;
 	PhoneBook phoneBook;
 
-	std::cout << "Choose your cmd(add, search, exit): ";
-	std::getline(std::cin, cmd, '\n');
-	while (!cmd.empty())
+//	std::cout << "Choose your cmd(add, search, exit): ";
+//	std::getline(std::cin, cmd, '\n');
+
+	while (1)
 	{
+		std::cout << "Choose your cmd(add, search, exit): ";
+		std::getline(std::cin, cmd, '\n');
+		if (std::cin.fail())
+			break;
 		for (int i = 0; i < (int)cmd.length(); i++)
 			cmd[i] = (char)toupper(cmd[i]);
 		if (cmd.compare(ADD) == 0)
@@ -21,8 +26,6 @@ int	main()
 		}
 		else if (cmd.compare(EXIT) == 0)
 			break;
-		std::cout << "Choose your cmd(add, search, exit): ";
-		std::getline(std::cin, cmd, '\n');
 	}
 	return 0;
 }

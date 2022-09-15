@@ -3,6 +3,7 @@
 # include "Contact.hpp"
 # include <iostream>
 # include <stdlib.h>
+# include <iomanip>
 
 # define ADD "ADD"
 # define SEARCH "SEARCH"

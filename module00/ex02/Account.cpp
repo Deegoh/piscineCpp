@@ -115,8 +115,8 @@ void Account::_displayTimestamp() {
 	std::cout << 1 + ltm->tm_mon;
 	std::cout << ltm->tm_mday;
 	std::cout << "_";
-	std::cout << 5+ltm->tm_hour;
-	std::cout << 30+ltm->tm_min;
+	std::cout << ltm->tm_hour;
+	std::cout << ltm->tm_min;
 	std::cout << ltm->tm_sec;
 	std::cout << "] ";
 }
