@@ -15,6 +15,8 @@ std::string getDataCin(std::string str)
 
 	std::cout << str;
 	std::getline(std::cin, data, '\n');
+	if (std::cin.fail())
+		return "";
 	if (data.empty())
 		data = getDataCin(str);
 	return data;
@@ -24,14 +26,24 @@ void PhoneBook::addContact() {
 	std::string data;
 
 	data = getDataCin("Enter your first name: ");
+	if (data.empty())
+		return;
 	this->contacts[_nbContact].setFirstName(data);
 	data = getDataCin("Enter your last name: ");
+	if (data.empty())
+		return;
 	this->contacts[_nbContact].setLastName(data);
 	data = getDataCin("Enter your nick name: ");
+	if (data.empty())
+		return;
 	this->contacts[_nbContact].setNickName(data);
 	data = getDataCin("Enter your phone: ");
+	if (data.empty())
+		return;
 	this->contacts[_nbContact].setPhone(data);
 	data = getDataCin("Tell me your secret: ");
+	if (data.empty())
+		return;
 	this->contacts[_nbContact].setSecret(data);
 	this->_nbContact = (this->_nbContact + 1) % 8;
 }
@@ -49,7 +61,6 @@ void PhoneBook::printContact(int i) {
 }
 
 void formatPrinter(std::string key, std::string value) {
-
 	std::cout << std::left << "│";
 	std::cout << std::setw(10);
 	std::cout << std::setfill(' ');
@@ -68,7 +79,6 @@ void formatPrinter(std::string key, std::string value) {
 }
 
 void PhoneBook::searchAndPrint(int i) {
-
 	if (i > 8 || i < 1 || this->contacts[i - 1].getFirstName().empty())
 	{
 		std::cout << "Choose a existing contact" << std::endl;

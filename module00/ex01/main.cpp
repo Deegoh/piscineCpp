@@ -5,9 +5,6 @@ int	main()
 	std::string cmd;
 	PhoneBook phoneBook;
 
-//	std::cout << "Choose your cmd(add, search, exit): ";
-//	std::getline(std::cin, cmd, '\n');
-
 	while (1)
 	{
 		std::cout << "Choose your cmd(add, search, exit): ";
