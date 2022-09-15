@@ -1,8 +1,12 @@
 .idea
 
+#module00
 **/phonebook
 **/megaphone
 **/account
+#module00
+**/brainz
+
 **/obj
 
 *.dylib
