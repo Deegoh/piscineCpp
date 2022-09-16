@@ -6,10 +6,9 @@ CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 SRC =	main.cpp\
 		Zombie.cpp\
-		newZombie.cpp\
-		randomChump.cpp
+		zombieHorde.cpp
 HEADER=	Zombie.hpp
-NAME = brainz
+NAME = moreBrainz
 
 OBJ_DIR = obj/
 _OBJ = $(SRC:.cpp=.o)
@@ -33,5 +32,6 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(NAME).dSYM
 
 re: fclean all
