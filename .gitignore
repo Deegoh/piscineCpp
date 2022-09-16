@@ -9,6 +9,7 @@
 
 **/obj
 
+**.dSYM
 *.dylib
 *.out
 *.o
