@@ -1,11 +1,11 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie() : _name("Placeholder") {
-	std::cout <<"Zombie contruct" << std::endl;
+void Zombie::setName(std::string name) {
+	this->_name = name;
 }
 
-Zombie::Zombie(std::string name) : _name(name) {
-	std::cout << name <<" Zombie rename" << std::endl;
+Zombie::Zombie() : _name("Default") {
+	std::cout <<"Zombie construct" << std::endl;
 }
 
 Zombie::~Zombie() {
