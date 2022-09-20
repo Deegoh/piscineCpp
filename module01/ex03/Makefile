@@ -7,10 +7,10 @@ CFLAGS += -g #-fsanitize=address
 SRC =	main.cpp\
 		Weapon.cpp\
 		HumanA.cpp\
-		HumanB.cpp
+#		HumanB.cpp
 HEADER=	Weapon.hpp\
 		HumanA.hpp\
-		HumanB.hpp
+#		HumanB.hpp
 NAME = violence
 
 OBJ_DIR = obj/
@@ -24,7 +24,7 @@ all: $(NAME)
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ): $(OBJ_DIR)%.o : %.cpp | $(OBJ_DIR) $(HEADER)
+$(OBJ): $(OBJ_DIR)%.o : %.cpp $(HEADER) | $(OBJ_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)

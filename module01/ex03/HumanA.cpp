@@ -1,13 +1,13 @@
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon type) :
+HumanA::HumanA(std::string name, Weapon &type) :
 	_name(name),
 	_weapon(type) {
-	std::cout << "construct HumanA" << std::endl;
+//	std::cout << "construct HumanA" << std::endl;
 }
 
 HumanA::~HumanA() {
-	std::cout << "destruct HumanA" << std::endl;
+//	std::cout << "destruct HumanA" << std::endl;
 }
 
 void HumanA::attack() {

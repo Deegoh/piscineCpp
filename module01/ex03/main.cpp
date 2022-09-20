@@ -12,13 +12,13 @@ int main()
 		bob.attack();
 	}
 	{
-		Weapon sword = Weapon("Long Sword");
+//		Weapon sword = Weapon("Long Sword");
 
-		HumanB jim = HumanB("Jim");
-		jim.setWeapon(sword);
-		jim.attack();
-		sword.setType("Short Sword");
-		jim.attack();
+//		HumanB jim = HumanB("Jim");
+//		jim.setWeapon(sword);
+//		jim.attack();
+//		sword.setType("Short Sword");
+//		jim.attack();
 	}
 	return 0;
 }
