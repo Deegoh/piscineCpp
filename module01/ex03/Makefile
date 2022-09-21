@@ -7,10 +7,10 @@ CFLAGS += -g #-fsanitize=address
 SRC =	main.cpp\
 		Weapon.cpp\
 		HumanA.cpp\
-#		HumanB.cpp
+		HumanB.cpp
 HEADER=	Weapon.hpp\
 		HumanA.hpp\
-#		HumanB.hpp
+		HumanB.hpp
 NAME = violence
 
 OBJ_DIR = obj/
