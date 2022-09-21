@@ -12,6 +12,8 @@ int main(int ac, char **av)
 		std::string str(av[i]);
 		for (int j = 0; j < (int)str.length(); j++)
 			std::cout << (char)toupper(str[j]);
+		if (i < ac - 1)
+			std::cout << " ";
 	}
 	std::cout << std::endl;
 	return 0;
