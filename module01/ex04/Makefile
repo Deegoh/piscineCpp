@@ -4,10 +4,7 @@ RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
-SRC =	main.cpp
-#HEADER=	Weapon.hpp\
-#		HumanA.hpp\
-#		HumanB.hpp
+SRC = main.cpp
 NAME = sed
 
 OBJ_DIR = obj/
