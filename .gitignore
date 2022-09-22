@@ -15,6 +15,7 @@
 **/test**
 **/obj
 
+**/.DS_Store
 **.dSYM
 *.dylib
 *.out
