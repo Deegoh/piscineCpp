@@ -1,6 +1,13 @@
 #include "Harl.hpp"
 
+#include <sstream>
+
 int main() {
-	std::cout << "Hello world" << std::endl;
+	Harl harl;
+
+	harl.complain("INFO");
+	harl.complain("ERROR");
+	harl.complain("WARNING");
+	harl.complain("DEBUG");
 	return 0;
 }

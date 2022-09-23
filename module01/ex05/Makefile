@@ -5,8 +5,8 @@ CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 SRC =	main.cpp\
-#		Harl.cpp
-#HEADER=	Harl.hpp
+		Harl.cpp
+HEADER=	Harl.hpp
 NAME = harl2
 
 OBJ_DIR = obj/
