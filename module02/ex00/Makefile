@@ -5,7 +5,7 @@ CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 SRC =	main.cpp\
-#		Fixed.cpp
+		Fixed.cpp
 HEADER=	Fixed.hpp
 NAME = canon
 

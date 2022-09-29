@@ -8,6 +8,12 @@ Fixed::~Fixed() {
 	std::cout << "Destructor called" << std::endl;
 }
 
+Fixed::Fixed(int const nbr_i) : _raw(nbr_i){}
+
+Fixed::Fixed(float const nbr_f) : _raw(roundf(nbr_f)) {
+	std::cout << "test " << nbr_f << std::endl;
+}
+
 Fixed::Fixed(Fixed const &src) {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
@@ -31,3 +37,15 @@ void Fixed::setRawBits(const int raw) {
 	std::cout << "setRawBits member function called" << std::endl;
 	_raw = raw;
 }
+
+//Fixed(int const n);
+//Fixed(float const z);
+//
+//Fixed &operator=(Fixed const &rhs); // operator
+//Fixed &operator<<(Fixed const &rhs); // operator
+//
+//int getRawBits() const;
+//void setRawBits(int const raw);
+//
+//float toFloat(void) const;
+//int toInt(void) const;
