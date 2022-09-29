@@ -15,7 +15,7 @@ OBJ_DIR = obj/
 _OBJ = $(SRC:.cpp=.o)
 OBJ = $(addprefix $(OBJ_DIR), $(_OBJ))
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re run
 
 all: $(NAME)
 
@@ -34,5 +34,8 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(NAME).dSYM
+
+run:
+	./$(NAME)
 
 re: fclean all
