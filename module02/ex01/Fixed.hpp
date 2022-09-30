@@ -11,10 +11,8 @@ public:
 	Fixed(float const nbr_f);
 	Fixed(Fixed const &src); //copy
 	~Fixed(); //destructor
-//	Fixed(float z);
 
 	Fixed &operator=(Fixed const &rhs); // operator
-	Fixed &operator<<(Fixed const &rhs); // operator
 
 	int getRawBits() const;
 	void setRawBits(int const raw);
@@ -26,5 +24,7 @@ private:
 	int _raw;
 	static int const _bits = 8;
 };
+
+std::ostream &operator<<(std::ostream & o, Fixed const &rhs); // operator
 
 #endif
