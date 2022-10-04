@@ -6,13 +6,30 @@
 
 class Fixed {
 public:
-	Fixed(); //constructor
+	Fixed();
 	Fixed(int const nbr_i);
 	Fixed(float const nbr_f);
-	Fixed(Fixed const &src); //copy
-	~Fixed(); //destructor
+	Fixed(Fixed const &src);
+	~Fixed();
 
-	Fixed &operator=(Fixed const &rhs); // operator
+	Fixed &operator=(Fixed const &rhs);
+
+	Fixed &operator>(Fixed const &rhs); // new
+	Fixed &operator>=(Fixed const &rhs); // new
+	Fixed &operator<(Fixed const &rhs); // new
+	Fixed &operator<=(Fixed const &rhs); // new
+	Fixed &operator==(Fixed const &rhs); // new
+	Fixed &operator!=(Fixed const &rhs); // new
+
+	Fixed &operator+(Fixed const &rhs); // new
+	Fixed &operator-(Fixed const &rhs); // new
+	Fixed &operator*(Fixed const &rhs); // new
+	Fixed &operator/(Fixed const &rhs); // new
+
+	Fixed &operator++(); // new
+	Fixed &operator++(int); // new
+	Fixed &operator--(); // new
+	Fixed &operator--(int); // new
 
 	int getRawBits() const;
 	void setRawBits(int const raw);
