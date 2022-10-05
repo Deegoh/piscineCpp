@@ -1,30 +1,30 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() : _raw(0) {
-	std::cout << "Default constructor called" << std::endl;
+//	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
+//	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(int const nbr_i) {
 	_raw = nbr_i << _bits;
-	std::cout << "Int constructor called" << std::endl;
+//	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(float const nbr_f) {
 	_raw = roundf(nbr_f * (1 << _bits));
-	std::cout << "Float constructor called" << std::endl;
+//	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const &src) {
-	std::cout << "Copy constructor called" << std::endl;
+//	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed &Fixed::operator=(const Fixed &rhs) {
-	std::cout << "Copy assignment operator called" << std::endl;
+//	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		_raw = rhs.getRawBits();
 	return *this;
@@ -34,6 +34,49 @@ std::ostream &operator<<(std::ostream & o, const Fixed &rhs) {
 	o << rhs.toFloat();
 	return o;
 }
+
+//	Fixed &Fixed::&operator>(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator>=(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator<(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator<=(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator==(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator!=(Fixed const &rhs); // new
+
+//	Fixed &Fixed::&operator+(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator-(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator*(Fixed const &rhs); // new
+//	Fixed &Fixed::&operator/(Fixed const &rhs); // new
+
+Fixed &Fixed::operator++()
+{
+	this->_raw++;
+	return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed tmp(*this);
+	++(*this);
+	return tmp;
+}
+
+Fixed &Fixed::operator--()
+{
+	this->_raw--;
+	return *this;
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed tmp(*this);
+	--(*this);
+	return tmp;
+}
+
+//	static &Fixed::Fixed min(Fixed &a, Fixed &b); //new
+//	static const &Fixed::Fixed min(Fixed &a, Fixed &b); //new
+//	static Fixed &Fixed::max(Fixed &a, Fixed &b); //new
+//	static const &Fixed::Fixed max(Fixed &a, Fixed &b); //new
 
 int Fixed::getRawBits() const {
 //	std::cout << "getRawBits member function called" << std::endl;
