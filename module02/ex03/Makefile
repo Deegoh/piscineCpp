@@ -6,7 +6,8 @@ CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 SRC =	main.cpp\
 		Fixed.cpp\
-		Point.cpp
+		Point.cpp\
+		bsp.cpp
 HEADER=	Fixed.hpp\
 		Point.hpp
 NAME = bsp
@@ -22,8 +23,8 @@ all: $(NAME)
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
-$(OBJ): $(OBJ_DIR)%.o : %.cpp $(HEADER) | $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJ): $(OBJ_DIR)%.o : %.cpp $(HEADER) ./Makefile | $(OBJ_DIR)
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)

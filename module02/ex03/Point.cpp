@@ -15,14 +15,10 @@ Point::Point(const Point &src) {
 }
 
 Point &Point::operator=(const Point &rhs) {
-	if (_x != rhs._x && _y == rhs._y)
-		_x = rhs._x;
-	else if (_x == rhs._x && _y != rhs._y)
-		_y = rhs._y;
-	else if (_x != rhs._x && _y != rhs._y)
+	if (this != &rhs)
 	{
-		_x = rhs._x;
-		_y = rhs._y;
+		_tx = rhs._x;
+		_ty = rhs._y;
 	}
 	return *this;
 }
