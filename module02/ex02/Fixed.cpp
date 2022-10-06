@@ -35,48 +35,83 @@ std::ostream &operator<<(std::ostream & o, const Fixed &rhs) {
 	return o;
 }
 
-//	Fixed &Fixed::&operator>(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator>=(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator<(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator<=(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator==(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator!=(Fixed const &rhs); // new
+bool Fixed::operator>(Fixed const &rhs) const {
+	return getRawBits() > rhs.getRawBits();
+}
 
-//	Fixed &Fixed::&operator+(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator-(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator*(Fixed const &rhs); // new
-//	Fixed &Fixed::&operator/(Fixed const &rhs); // new
+bool Fixed::operator>=(Fixed const &rhs) const {
+	return getRawBits() >= rhs.getRawBits();
+}
 
-Fixed &Fixed::operator++()
-{
+bool Fixed::operator<(Fixed const &rhs) const {
+	return getRawBits() < rhs.getRawBits();
+}
+
+bool Fixed::operator<=(Fixed const &rhs) const {
+	return getRawBits() <= rhs.getRawBits();
+}
+
+bool Fixed::operator==(Fixed const &rhs) const {
+	return getRawBits() == rhs.getRawBits();
+}
+
+bool Fixed::operator!=(Fixed const &rhs) const {
+	return getRawBits() != rhs.getRawBits();
+}
+
+Fixed Fixed::operator+(Fixed const &rhs) const {
+	return Fixed(toFloat() + rhs.toFloat());
+}
+
+Fixed Fixed::operator-(Fixed const &rhs) const {
+	return Fixed(toFloat() - rhs.toFloat());
+}
+
+Fixed Fixed::operator*(Fixed const &rhs) const{
+	return Fixed(toFloat() * rhs.toFloat());
+}
+
+Fixed Fixed::operator/(Fixed const &rhs) const{
+	return Fixed(toFloat() / rhs.toFloat());
+}
+
+Fixed &Fixed::operator++() {
 	this->_raw++;
 	return *this;
 }
 
-Fixed Fixed::operator++(int)
-{
+Fixed Fixed::operator++(int) {
 	Fixed tmp(*this);
 	++(*this);
 	return tmp;
 }
 
-Fixed &Fixed::operator--()
-{
+Fixed &Fixed::operator--() {
 	this->_raw--;
 	return *this;
 }
 
-Fixed Fixed::operator--(int)
-{
+Fixed Fixed::operator--(int) {
 	Fixed tmp(*this);
 	--(*this);
 	return tmp;
 }
 
-//	static &Fixed::Fixed min(Fixed &a, Fixed &b); //new
-//	static const &Fixed::Fixed min(Fixed &a, Fixed &b); //new
-//	static Fixed &Fixed::max(Fixed &a, Fixed &b); //new
-//	static const &Fixed::Fixed max(Fixed &a, Fixed &b); //new
+Fixed &Fixed::min(Fixed &a, Fixed &b) {
+	return a <= b ? a : b;
+}
+
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b) {
+	return a <= b ? a : b;
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b) {
+	return a >= b ? a : b;
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b) {
+	return a >= b ? a : b;
+}
 
 int Fixed::getRawBits() const {
 //	std::cout << "getRawBits member function called" << std::endl;
@@ -84,7 +119,7 @@ int Fixed::getRawBits() const {
 }
 
 void Fixed::setRawBits(const int raw) {
-	std::cout << "setRawBits member function called" << std::endl;
+//	std::cout << "setRawBits member function called" << std::endl;
 	_raw = raw;
 }
 
