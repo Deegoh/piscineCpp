@@ -7,7 +7,7 @@ CFLAGS += -g -fsanitize=address
 SRC =	main.cpp\
 		Fixed.cpp
 HEADER=	Fixed.hpp
-NAME = utileClass
+NAME = overload
 
 OBJ_DIR = obj/
 _OBJ = $(SRC:.cpp=.o)
