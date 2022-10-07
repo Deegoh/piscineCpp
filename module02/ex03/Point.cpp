@@ -23,4 +23,8 @@ Point &Point::operator=(const Point &rhs) {
 	return *this;
 }
 
+int Point::getTx() {
+
+}
+
 Point::~Point() {}

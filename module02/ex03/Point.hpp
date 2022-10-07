@@ -10,6 +10,9 @@ public:
 	Point(Point const &src);
 	Point &operator=(Point const &rhs);
 	~Point();
+
+	int getTx();
+	int getTy();
 private:
 	const Fixed _x;
 	const Fixed _y;

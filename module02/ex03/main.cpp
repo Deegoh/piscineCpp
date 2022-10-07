@@ -1,5 +1,4 @@
 #include "Point.hpp"
-#include "Fixed.hpp"
 #include <iostream>
 
 bool bsp(const Point a, const Point b, const Point c, const Point point);
