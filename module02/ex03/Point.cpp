@@ -23,8 +23,12 @@ Point &Point::operator=(const Point &rhs) {
 	return *this;
 }
 
-int Point::getTx() {
+int Point::getTx() const {
+	return _tx.getRawBits();
+}
 
+int Point::getTy() const {
+	return _ty.getRawBits();
 }
 
 Point::~Point() {}

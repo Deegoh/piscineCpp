@@ -1,5 +1,9 @@
 CC = c++
-CC = g++-12
+ifeq ($(shell uname), Linux)
+	CC = g++
+else
+	CC = g++-12
+endif
 RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic

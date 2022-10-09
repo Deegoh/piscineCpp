@@ -11,8 +11,8 @@ public:
 	Point &operator=(Point const &rhs);
 	~Point();
 
-	int getTx();
-	int getTy();
+	int getTx() const;
+	int getTy() const;
 private:
 	const Fixed _x;
 	const Fixed _y;
