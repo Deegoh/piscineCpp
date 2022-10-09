@@ -9,9 +9,11 @@ CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 SRC =	main.cpp\
-		ClapTrap.cpp
-HEADER=	ClapTrap.hpp
-NAME = claptrap
+		ClapTrap.cpp\
+		ScavTrap.cpp
+HEADER=	ClapTrap.hpp\
+		ScavTrap.hpp
+NAME = scavtrap
 
 OBJ_DIR = obj/
 _OBJ = $(SRC:.cpp=.o)
