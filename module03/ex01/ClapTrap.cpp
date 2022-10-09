@@ -21,7 +21,7 @@ ClapTrap::ClapTrap(std::string name) :
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src) {
-	std::cout << "copy called" << std::endl;
+	std::cout << "ClapTrap Copy called" << std::endl;
 	(*this) = src;
 }
 
