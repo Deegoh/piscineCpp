@@ -4,6 +4,7 @@
 **/phonebook
 **/megaphone
 **/account
+
 #module01
 **/brainz
 **/moreBrainz
@@ -13,11 +14,15 @@
 **/**.replace
 **/harl2
 **/HarlFilter
+
 #module02
 **/canon
 **/utileClass
 **/overload
 **/bsp
+
+#module02
+**/claptrap
 
 **/Placeholder
 **/test
