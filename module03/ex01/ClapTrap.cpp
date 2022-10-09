@@ -28,14 +28,10 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
 	if (&rhs != this)
 	{
-		this->setName(rhs.getName());
-		this->setHitPoints(rhs.getHitPoints());
-		this->setEnergyPoints(rhs.getEnergyPoints());
-		this->setAttackDamage(rhs.getAttackDamage());
-//		_name = rhs._name;
-//		_hitPoints = rhs._hitPoints;
-//		_energyPoints = rhs._energyPoints;
-//		_attackDamage = rhs._attackDamage;
+		_name = rhs._name;
+		_hitPoints = rhs._hitPoints;
+		_energyPoints = rhs._energyPoints;
+		_attackDamage = rhs._attackDamage;
 	}
 	return (*this);
 }
@@ -110,9 +106,6 @@ void ClapTrap::beRepaired(unsigned int amount) {
 			  << getHitPoints()
 			  << " Hit Points." << std::endl;
 }
-
-//void takeDamage(unsigned int amount)
-//void beRepaired(unsigned int amount);
 
 std::string ClapTrap::getName() const {
 	return (_name);

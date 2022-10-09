@@ -17,23 +17,20 @@ public:
 	void beRepaired(unsigned int amount);
 
 	std::string getName() const;
-	void setName(std::string name);
-
 	int getHitPoints() const;
-	void setHitPoints(int hp);
-
 	int getEnergyPoints() const;
-	void setEnergyPoints(int ep);
-
 	int getAttackDamage() const;
-	void setAttackDamage(int ad);
 
 private:
+	void setName(std::string name);
+	void setHitPoints(int hp);
+	void setEnergyPoints(int ep);
+	void setAttackDamage(int ad);
+
 	std::string _name;
 	int _hitPoints;
 	int _energyPoints;
 	int _attackDamage;
-
 };
 
 #endif
