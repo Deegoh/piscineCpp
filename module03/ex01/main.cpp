@@ -20,8 +20,12 @@ int main()
 	std::cout << std::endl;
 
 	ScavTrap theAssailant("Eren");
+	ScavTrap theGuard("Reignar");
 	theAssailant.attack("Reignar");
 	theAssailant.guardGate();
 	theAssailant.guardGate();
+	theAssailant.guardGate();
+	theGuard = theAssailant;
+	theGuard.guardGate();
 	return 0;
 }
