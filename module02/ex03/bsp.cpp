@@ -6,7 +6,7 @@ bool bsp(const Point a, const Point b, const Point c, const Point point) {
 	float lamda1 = lamda1top / lamda1bot;
 	float lamda2 = (point.getTx() - lamda1 * a.getTx() - c.getTx() + lamda1 * c.getTx()) / (b.getTx() - c.getTx());
 	float lamda3 = 1 - lamda1 - lamda2;
-	if (lamda1 >= 0 && lamda2 >= 0 && lamda3 >= 0)
+	if (lamda1 > 0 && lamda2 > 0 && lamda3 > 0)
 		return true;
 	return false;
 }
