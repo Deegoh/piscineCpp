@@ -1,7 +1,7 @@
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() :
-	_name("placeHolder"),
+	_name("ClapHolder"),
 	_hitPoints(10),
 	_energyPoints(10),
 	_attackDamage(0) {

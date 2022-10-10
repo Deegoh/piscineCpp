@@ -1,22 +1,11 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() :
-		_name("placeHolder"),
-		_hitPoints(100),
-		_energyPoints(50),
-		_attackDamage(20),
-		_guardMode(false) {
-	std::cout << "ScavTrap "
-			  << getName()
-			  << " Constructor called" << std::endl;
-}
+ScavTrap::ScavTrap() : ClapTrap() {}
 
-ScavTrap::ScavTrap(std::string name) :
-		_name(name),
-		_hitPoints(100),
-		_energyPoints(50),
-		_attackDamage(20),
-		_guardMode(false) {
+ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _guardMode(false) {
+	_hitPoints = 100;
+	_energyPoints = 50;
+	_attackDamage = 20;
 	std::cout << "ScavTrap "
 			  << getName()
 			  << " Constructor called" << std::endl;
@@ -30,10 +19,7 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
 	if (&rhs != this)
 	{
-		_name = rhs._name;
-		_hitPoints = rhs._hitPoints;
-		_energyPoints = rhs._energyPoints;
-		_attackDamage = rhs._attackDamage;
+		*this = rhs;
 		_guardMode = rhs._guardMode;
 	}
 	return (*this);
@@ -46,45 +32,17 @@ ScavTrap::~ScavTrap() {
 }
 
 void ScavTrap::guardGate() {
+	if (!_guardMode)
+	{
+		std::cout << "ScavTrap "
+				  << getName()
+				  << " is now in Gate keeper mode." << std::endl;
+	}
+	else
+	{
+		std::cout << "ScavTrap "
+				  << getName()
+				  << " is now in normal mode." << std::endl;
+	}
 	_guardMode ? _guardMode = false : _guardMode = true;
-	std::cout << "ScavTrap "
-			  << getName()
-			  << " is now in Gate keeper mode." << std::endl;
-}
-
-std::string ScavTrap::getName() const {
-	return (_name);
-}
-
-int ScavTrap::getHitPoints() const {
-	return (_hitPoints);
-}
-
-int ScavTrap::getEnergyPoints() const {
-	return (_energyPoints);
-}
-
-int ScavTrap::getAttackDamage() const {
-	return (_attackDamage);
-}
-
-bool ScavTrap::getGuardMode() const {
-	return (_guardMode);
-}
-
-void ScavTrap::setName(std::string name) {
-	_name = name;
-}
-
-void ScavTrap::setHitPoints(int hp) {
-	_hitPoints = hp;
-}
-
-void ScavTrap::setEnergyPoints(int ep) {
-	_energyPoints = ep;
-}
-
-
-void ScavTrap::setAttackDamage(int ad) {
-	_attackDamage = ad;
 }

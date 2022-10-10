@@ -21,5 +21,7 @@ int main()
 
 	ScavTrap theAssailant("Eren");
 	theAssailant.attack("Reignar");
+	theAssailant.guardGate();
+	theAssailant.guardGate();
 	return 0;
 }
