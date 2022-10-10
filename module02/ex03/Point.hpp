@@ -6,7 +6,7 @@
 class Point {
 public:
 	Point();
-	Point(const Fixed x, const Fixed y);
+	Point(int x, int y);
 	Point(Point const &src);
 	Point &operator=(Point const &rhs);
 	~Point();
