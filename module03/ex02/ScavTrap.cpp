@@ -11,7 +11,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name), _guardMode(false) {
 			  << " Constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
+ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap(src) {
 	std::cout << "ScavTrap Copy called" << std::endl;
 	(*this) = src;
 }
@@ -43,7 +43,6 @@ void ScavTrap::attack(const std::string &target) {
 			std::cout << "No more energy points."<< std::endl;
 		return;
 	}
-	setEnergyPoints(getEnergyPoints() - 1);
 	std::cout << "ScavTrap "
 			  << getName()
 			  << " attacks "

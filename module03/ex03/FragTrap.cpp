@@ -1,6 +1,6 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap("FragTrap") {}
+FragTrap::FragTrap() : ClapTrap() {}
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	_hitPoints = 100;
@@ -8,7 +8,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	_attackDamage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &src) : ClapTrap() {
+FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src) {
 	std::cout << "FragTrap Copy called" << std::endl;
 	(*this) = src;
 }
@@ -37,7 +37,6 @@ void FragTrap::attack(const std::string &target) {
 			std::cout << "No more energy points."<< std::endl;
 		return;
 	}
-	setEnergyPoints(getEnergyPoints() - 1);
 	std::cout << "FragTrap "
 			  << getName()
 			  << " attacks "

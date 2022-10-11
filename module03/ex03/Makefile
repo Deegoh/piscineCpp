@@ -15,7 +15,7 @@ SRC =	main.cpp\
 		DiamondTrap.cpp
 HEADER=	ClapTrap.hpp\
 		ScavTrap.hpp\
-		FragTrap.hpp
+		FragTrap.hpp\
 		DiamondTrap.hpp
 NAME = diamondtrap
 
