@@ -21,11 +21,16 @@ int main()
 
 	ScavTrap theAssailant("Eren");
 	ScavTrap theGuard("Reignar");
+	{
+		ScavTrap theThird(theGuard);
+	}
 	theAssailant.attack("Reignar");
 	theAssailant.guardGate();
 	theAssailant.guardGate();
 	theAssailant.guardGate();
+	std::cout << theGuard.getName() << std::endl;
 	theGuard = theAssailant;
 	theGuard.guardGate();
+	std::cout << theGuard.getName() << std::endl;
 	return 0;
 }

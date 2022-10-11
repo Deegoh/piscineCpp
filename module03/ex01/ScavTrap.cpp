@@ -17,9 +17,10 @@ ScavTrap::ScavTrap(ScavTrap const &src) : ClapTrap() {
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
+	std::cout << "ScavTrap operator= called" << std::endl;
 	if (&rhs != this)
 	{
-		*this = rhs;
+		this->ClapTrap::operator=(rhs);
 		_guardMode = rhs._guardMode;
 	}
 	return (*this);
@@ -29,6 +30,28 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap "
 			  << getName()
 			  << " Destructor called" << std::endl;
+}
+
+void ScavTrap::attack(const std::string &target) {
+	if (getHitPoints() <= 0 || getEnergyPoints() <= 0)
+	{
+		if (getHitPoints() <= 0)
+			std::cout << "ScavTrap "
+					  << getName()
+					  << " is already dead." << std::endl;
+		else
+			std::cout << "No more energy points."<< std::endl;
+		return;
+	}
+	setEnergyPoints(getEnergyPoints() - 1);
+	std::cout << "ScavTrap "
+			  << getName()
+			  << " attacks "
+			  << target
+			  << " causing "
+			  << getAttackDamage()
+			  << " points of damage !" << std::endl;
+	setEnergyPoints(getEnergyPoints() - 1);
 }
 
 void ScavTrap::guardGate() {
@@ -44,5 +67,5 @@ void ScavTrap::guardGate() {
 				  << getName()
 				  << " is now in normal mode." << std::endl;
 	}
-	_guardMode ? _guardMode = false : _guardMode = true;
+	_guardMode = !_guardMode;
 }

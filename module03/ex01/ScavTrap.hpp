@@ -11,6 +11,7 @@ public:
 	ScavTrap &operator=(ScavTrap const &rhs);
 	~ScavTrap();
 
+	void attack(std::string const &target);
 	void guardGate();
 	bool getGuardMode() const;
 

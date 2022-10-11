@@ -26,6 +26,7 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &rhs) {
+	std::cout << "ClapTrap operator= called" << std::endl;
 	if (&rhs != this)
 	{
 		_name = rhs._name;
