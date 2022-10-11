@@ -97,14 +97,14 @@ void ClapTrap::beRepaired(unsigned int amount) {
 			std::cout << "No more energy points."<< std::endl;
 		return;
 	}
-	setEnergyPoints(getEnergyPoints() - 1);
-	setHitPoints(getHitPoints() + amount);
 	std::cout << "ClapTrap "
 			  << getName()
 			  << " repairs itself. "
 			  << "Get "
 			  << getHitPoints()
 			  << " Hit Points." << std::endl;
+	setEnergyPoints(getEnergyPoints() - 1);
+	setHitPoints(getHitPoints() + amount);
 }
 
 std::string ClapTrap::getName() const {
