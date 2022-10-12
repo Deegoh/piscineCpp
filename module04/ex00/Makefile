@@ -13,13 +13,19 @@ SRC_DIR = src/
 _SRC =	main.cpp\
 		Animal.cpp\
 		Cat.cpp\
-		Dog.cpp
+		Dog.cpp\
+		WrongAnimal.cpp\
+		WrongCat.cpp\
+		WrongDog.cpp
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
 HEADER=	Animal.hpp\
 		Cat.hpp\
-		Dog.hpp
+		Dog.hpp\
+		WrongAnimal.hpp\
+		WrongCat.hpp\
+		WrongDog.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = polymorphisme

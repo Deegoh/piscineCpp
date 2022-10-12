@@ -10,7 +10,7 @@ public:
 	Cat &operator=(const Cat &rhs);
 	~Cat();
 
-	void makeSound();
+	void makeSound() const;
 };
 
 #endif
