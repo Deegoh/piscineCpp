@@ -9,9 +9,7 @@ public:
 	WrongAnimal(const WrongAnimal &src);
 	WrongAnimal &operator=(const WrongAnimal &rhs);
 	~WrongAnimal();
-
-protected:
-	void makeSound();
+	void makeSound() const;
 };
 
 #endif
