@@ -12,7 +12,7 @@ Animal::Animal(const Animal &src) {
 Animal &Animal::operator=(const Animal &rhs) {
 	std::cout << "Animal Operator = Called" << std::endl;
 	if (this != &rhs)
-		(*this) = rhs;
+		_type = rhs._type;
 	return (*this);
 }
 

@@ -5,7 +5,7 @@ Cat::Cat() : Animal() {
 	std::cout << "Cat Constructor Called" << std::endl;
 }
 
-Cat::Cat(const Cat &src) : Animal() {
+Cat::Cat(const Cat &src) : Animal(src) {
 	std::cout << "Cat Copy Called" << std::endl;
 	(*this) = src;
 }

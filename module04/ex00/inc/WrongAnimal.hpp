@@ -9,7 +9,12 @@ public:
 	WrongAnimal(const WrongAnimal &src);
 	WrongAnimal &operator=(const WrongAnimal &rhs);
 	~WrongAnimal();
+
 	void makeSound() const;
+	std::string getType() const;
+
+protected:
+	std::string _type;
 };
 
 #endif
