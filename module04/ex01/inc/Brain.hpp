@@ -1,7 +1,10 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
-//#include <string>
+#include <iostream>
+#include <sstream>
+
+#define NBR_IDEA 100
 
 class Brain {
 public:
@@ -10,7 +13,7 @@ public:
 	Brain &operator=(const Brain &rhs);
 	~Brain();
 
-//	std::string idea[100];
+	std::string ideas[NBR_IDEA];
 };
 
 #endif

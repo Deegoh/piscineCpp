@@ -13,8 +13,11 @@ public:
 
 	void makeSound() const;
 
+	virtual void setIdea(std::string idea, int i) const;
+	virtual std::string getIdea(int i) const;
+
 private:
-//	Brain::
+	Brain* _brain;
 };
 
 #endif

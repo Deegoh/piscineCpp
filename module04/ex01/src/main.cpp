@@ -8,62 +8,60 @@
 int main()
 {
 	{
-		std::cout << "Ex00 Animal" << std::endl;
-		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
-		const Dog* dogo = new Dog();
-		const Cat* cato = new Cat();
-
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound();//will output the cat sound!
-		j->makeSound();
-		meta->makeSound();
-		dogo->makeSound();
-		cato->makeSound();
-
-		delete meta;
-		delete j;
-		delete i;
-		delete dogo;
-		delete cato;
-	}
-	std::cout << std::endl;
-	{
-		std::cout << "Ex00 WrongAnimal" << std::endl;
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* j = new WrongDog();
-		const WrongAnimal* i = new WrongCat();
-		const WrongDog* dogo = new WrongDog();
-		const WrongCat* cato = new WrongCat();
-		std::cout << std::endl;
-
-		meta->makeSound();
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound();
-		j->makeSound();
-		meta->makeSound();
-		dogo->makeSound();
-		cato->makeSound();
-
-		std::cout << std::endl;
-		delete meta;
-		delete j;
-		delete i;
-		delete dogo;
-		delete cato;
-	}
-	std::cout << std::endl;
-	{
 		std::cout << "Ex01 Brain" << std::endl;
-		const Animal* dogo = new Dog();
-//		const Animal* cato = new Cat();
+		{
+			const Animal* dogo = new Dog();
+			const Animal* cato = new Cat();
+			delete dogo;
+			delete cato;
+		}
+		std::cout << std::endl;
+		{
+			const Dog* dogo = new Dog();
+			const Cat* cato = new Cat();
+			std::cout << std::endl;
+			for (int i = 0; i < 5; ++i)
+			{
+				std::ostringstream str1;
+				str1 << i;
+				dogo->setIdea("Hello dogo idea " + str1.str() + "!", i);
+				cato->setIdea("Hello cato idea " + str1.str() + "!", i);
+			}
+			std::cout << std::endl;
+			{
+				const Dog dopy = *dogo;
+				const Cat capy = *cato;
+				for (int i = 0; i < 5; ++i)
+				{
+					std::cout << dogo->getIdea(i) << " = " << dopy.getIdea(i) << std::endl;
+					std::cout << cato->getIdea(i) << " = " << capy.getIdea(i) << std::endl;
+				}
+			}
+			std::cout << std::endl;
+			{
+				Dog dopy;
+				Cat capy;
+				dopy = *dogo;
+				capy = *cato;
+				for (int i = 0; i < 5; ++i)
+				{
+					std::cout << dogo->getIdea(i) << " = " << dopy.getIdea(i) << std::endl;
+					std::cout << cato->getIdea(i) << " = " << capy.getIdea(i) << std::endl;
+				}
+			}
+			std::cout << std::endl;
+			for (int i = 0; i < 5; ++i)
+			{
+				std::cout << dogo->getIdea(i) << std::endl;
+				std::cout << cato->getIdea(i) << std::endl;
+			}
+			std::cout << std::endl;
+			std::cout << dogo->getIdea(10) << std::endl;
+			std::cout << dogo->getIdea(-10) << std::endl;
 
-		delete dogo;
-//		delete cato;
+			delete dogo;
+			delete cato;
+		}
 	}
-
 	return (0);
 }

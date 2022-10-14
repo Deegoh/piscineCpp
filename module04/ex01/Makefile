@@ -7,7 +7,7 @@ endif
 RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
-CFLAGS += -g -fsanitize=address
+CFLAGS += -g #-fsanitize=address
 
 SRC_DIR = src/
 _SRC =	main.cpp\
@@ -16,8 +16,8 @@ _SRC =	main.cpp\
 		Dog.cpp\
 		WrongAnimal.cpp\
 		WrongCat.cpp\
-		WrongDog.cpp
-#		Brain.cpp
+		WrongDog.cpp\
+		Brain.cpp
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
@@ -26,8 +26,8 @@ HEADER=	Animal.hpp\
 		Dog.hpp\
 		WrongAnimal.hpp\
 		WrongCat.hpp\
-		WrongDog.hpp
-#		Brain.hpp
+		WrongDog.hpp\
+		Brain.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = burn
