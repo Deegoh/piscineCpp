@@ -17,6 +17,7 @@ _SRC =	main.cpp\
 		WrongAnimal.cpp\
 		WrongCat.cpp\
 		WrongDog.cpp
+#		Brain.cpp
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
@@ -26,6 +27,7 @@ HEADER=	Animal.hpp\
 		WrongAnimal.hpp\
 		WrongCat.hpp\
 		WrongDog.hpp
+#		Brain.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = burn

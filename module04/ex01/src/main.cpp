@@ -8,6 +8,7 @@
 int main()
 {
 	{
+		std::cout << "Ex00 Animal" << std::endl;
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
@@ -30,6 +31,7 @@ int main()
 	}
 	std::cout << std::endl;
 	{
+		std::cout << "Ex00 WrongAnimal" << std::endl;
 		const WrongAnimal* meta = new WrongAnimal();
 		const WrongAnimal* j = new WrongDog();
 		const WrongAnimal* i = new WrongCat();
@@ -52,6 +54,15 @@ int main()
 		delete i;
 		delete dogo;
 		delete cato;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "Ex01 Brain" << std::endl;
+		const Animal* dogo = new Dog();
+//		const Animal* cato = new Cat();
+
+		delete dogo;
+//		delete cato;
 	}
 
 	return (0);
