@@ -4,14 +4,14 @@
 # include "Animal.hpp"
 # include "Brain.hpp"
 
-class Cat : public Animal{
+class Cat : public AAnimal{
 public:
 	Cat();
 	Cat(const Cat &src);
 	Cat &operator=(const Cat &rhs);
 	~Cat();
 
-	void makeSound() const;
+	virtual void makeSound();
 
 	virtual void setIdea(std::string idea, int i) const;
 	virtual std::string getIdea(int i) const;

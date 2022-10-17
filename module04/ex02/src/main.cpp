@@ -8,10 +8,12 @@
 int main()
 {
 	{
-		std::cout << "Ex01 Brain" << std::endl;
+		std::cout << "Ex02 Brain" << std::endl;
 		{
-			const Animal* dogo = new Dog();
-			const Animal* cato = new Cat();
+			const AAnimal* dogo = new Dog();
+			const AAnimal* cato = new Cat();
+			(void)dogo;
+			(void)cato;
 			delete dogo;
 			delete cato;
 		}
