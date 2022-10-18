@@ -11,16 +11,19 @@ CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
 _SRC =	main.cpp\
-		Character.hpp
-#		ICharacter.cpp
+		MateriaSource.cpp\
+		Cure.cpp
+#		Character.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
 HEADER=	AMateria.hpp\
 		IMateriaSource.hpp\
-		ICharacter.hpp\
-		Character.hpp
+		MateriaSource.hpp\
+		Cure.hpp
+#		ICharacter.hpp\
+#		Character.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = materia

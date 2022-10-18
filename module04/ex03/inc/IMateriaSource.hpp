@@ -4,7 +4,7 @@
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
 
-class IMateriaSource : public IMateriaSource{
+class IMateriaSource {
 public:
 	virtual ~IMateriaSource() {};
 	virtual void learnMateria(AMateria*) = 0;

@@ -7,6 +7,8 @@
 class AMateria {
 public:
 	AMateria(std::string const & type);
+	AMateria();
+	virtual ~AMateria();
 
 	std::string const & getType() const; // return the materia type
 
@@ -14,6 +16,6 @@ public:
 	virtual void use(ICharacter& target);
 
 protected:
-	std::string type;
+	std::string _type;
 };
 #endif
