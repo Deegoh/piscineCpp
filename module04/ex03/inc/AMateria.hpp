@@ -1,3 +1,4 @@
+class AMateria;
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
@@ -8,6 +9,7 @@ class AMateria {
 public:
 	AMateria(std::string const & type);
 	AMateria();
+	AMateria &operator=(const AMateria &rhs);
 	virtual ~AMateria();
 
 	std::string const & getType() const; // return the materia type

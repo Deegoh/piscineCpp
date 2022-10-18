@@ -5,11 +5,17 @@ AMateria::AMateria(std::string const & type) : _type(type) {}
 
 AMateria::~AMateria() {}
 
+AMateria &AMateria::operator=(const AMateria &rhs) {
+	if (&rhs != this)
+	{
+		_type = rhs._type;
+	}
+	return (*this);
+}
+
 std::string const & AMateria::getType() const {
 	return (_type);
 }
-
-AMateria* AMateria::clone() const {}
 
 void AMateria::use(ICharacter &target) {
 	(void)target;

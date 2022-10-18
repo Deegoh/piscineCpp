@@ -1,8 +1,11 @@
 #include "../inc/Character.hpp"
+//#include "Character.hpp"
 
-Character::Character(std::string name) : _name(name) {}
+Character::Character() : ICharacter(), _name("Random") {}
 
-Character::Character(const Character &src) {
+Character::Character(std::string name) : ICharacter(), _name(name) {}
+
+Character::Character(const Character &src) : ICharacter() {
 	(*this) = src;
 }
 
@@ -16,7 +19,9 @@ Character &Character::operator=(const Character &rhs) {
 
 Character::~Character() {}
 
-const std::string &Character::getName() const {return (_name);}
+std::string const &Character::getName() const {
+	return (_name);
+}
 
 void Character::equip(AMateria *m) {
 	(void)m;

@@ -9,6 +9,8 @@ public:
 	Cure(const Cure &src);
 	~Cure();
 	Cure &operator=(const Cure &rhs);
+
+	virtual AMateria* clone() const;
 };
 
 #endif

@@ -1,17 +1,15 @@
 #include <iostream>
-#include "AMateria.hpp"
-#include "MateriaSource.hpp"
+//#include "MateriaSource.hpp"
 #include "Character.hpp"
-
-#include <iostream>
-
-#include "../inc/Character.hpp"
+//#include "Cure.hpp"
 
 int main() {
-	IMateriaSource* src = new MateriaSource();
+//	Cure *test = new Cure();
+//	IMateriaSource* src = new MateriaSource();
 //	src->learnMateria(new Ice());
 //	src->learnMateria(new Cure());
 //
+	ICharacter* test = new Character("me");
 //	ICharacter* me = new Character("me");
 //	std::cout << me->getName() << std::endl;
 //
@@ -29,6 +27,6 @@ int main() {
 //	delete bob;
 //	delete me;
 //	delete src;
-	(void)src;
+	(void)test;
 	return (0);
 }

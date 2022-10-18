@@ -3,14 +3,15 @@
 
 # include "IMateriaSource.hpp"
 
-class MateriaSource {
+
+class MateriaSource : public IMateriaSource {
 public:
 	MateriaSource();
 	MateriaSource(const MateriaSource &src);
-	MateriaSource& operator=(const MateriaSource &rhs);
+	MateriaSource &operator=(const MateriaSource &rhs);
 	~MateriaSource();
 
-	virtual void learnMateria(AMateria*);
+	virtual void learnMateria(AMateria* materia);
 	virtual AMateria* createMateria(std::string const & type);
 };
 
