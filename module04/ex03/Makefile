@@ -7,14 +7,15 @@ endif
 RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
-CFLAGS += -g -fsanitize=address
+CFLAGS += -g #-fsanitize=address
 
 SRC_DIR = src/
 _SRC =	main.cpp\
 		MateriaSource.cpp\
 		AMateria.cpp\
-		Character.cpp
-#		Cure.cpp\
+		Character.cpp\
+		Cure.cpp\
+		Ice.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
@@ -24,7 +25,9 @@ HEADER=	AMateria.hpp\
 		MateriaSource.hpp\
 		ICharacter.hpp\
 		Character.hpp\
-#		Cure.hpp
+		Cure.hpp\
+		Ice.hpp
+
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = materia

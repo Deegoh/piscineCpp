@@ -3,7 +3,6 @@
 
 # include "IMateriaSource.hpp"
 
-
 class MateriaSource : public IMateriaSource {
 public:
 	MateriaSource();
@@ -13,6 +12,9 @@ public:
 
 	virtual void learnMateria(AMateria* materia);
 	virtual AMateria* createMateria(std::string const & type);
+private:
+	AMateria* _inventory[4];
+	int _nbr_materia;
 };
 
 #endif

@@ -2,12 +2,14 @@ class AMateria;
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
+# include <iostream>
 # include <string>
 #include "ICharacter.hpp"
 
 class AMateria {
 public:
 	AMateria(std::string const & type);
+
 	AMateria();
 	AMateria &operator=(const AMateria &rhs);
 	virtual ~AMateria();

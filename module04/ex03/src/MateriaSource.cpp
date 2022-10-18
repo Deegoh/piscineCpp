@@ -1,6 +1,11 @@
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource() : IMateriaSource() {}
+MateriaSource::MateriaSource() : IMateriaSource(), _nbr_materia(0) {
+	for (int i = 0; i < 4; ++i)
+	{
+		_inventory[i] = NULL;
+	}
+}
 
 MateriaSource::MateriaSource(const MateriaSource &src) : IMateriaSource() {
 	(*this) = src;
@@ -14,13 +19,26 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 	return (*this);
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+	delete [] *_inventory;
+}
 
 void MateriaSource::learnMateria(AMateria *materia) {
-	(void)materia;
+	if (_nbr_materia < 4)
+	{
+		_inventory[_nbr_materia] = materia;
+		_nbr_materia++;
+	}
+	else {
+		std::cout << "Inventory is full." << std::endl;
+	}
 }
 
 AMateria* MateriaSource::createMateria(const std::string &type) {
-	(void)type;
-	return NULL;
+	for (int i = 0; i < _nbr_materia; i++)
+	{
+		if (_inventory[i]->getType() == type)
+			return (_inventory[i]->clone());
+	}
+	return (0);
 }

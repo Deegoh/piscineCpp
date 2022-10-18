@@ -1,9 +1,8 @@
 #include "AMateria.hpp"
-#include "../inc/AMateria.hpp"
 
 AMateria::AMateria(std::string const & type) : _type(type) {}
 
-AMateria::~AMateria() {}
+AMateria::AMateria() {}
 
 AMateria &AMateria::operator=(const AMateria &rhs) {
 	if (&rhs != this)
@@ -12,6 +11,8 @@ AMateria &AMateria::operator=(const AMateria &rhs) {
 	}
 	return (*this);
 }
+
+AMateria::~AMateria() {}
 
 std::string const & AMateria::getType() const {
 	return (_type);
