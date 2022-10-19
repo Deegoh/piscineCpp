@@ -20,7 +20,10 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs) {
 }
 
 MateriaSource::~MateriaSource() {
-	delete [] *_inventory;
+	for (int i = 0; i < 4; ++i)
+	{
+		delete _inventory[i];
+	}
 }
 
 void MateriaSource::learnMateria(AMateria *materia) {

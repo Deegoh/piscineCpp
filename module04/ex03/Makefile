@@ -7,7 +7,7 @@ endif
 RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
-CFLAGS += -g #-fsanitize=address
+CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
 _SRC =	main.cpp\

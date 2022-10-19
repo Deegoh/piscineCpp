@@ -16,6 +16,10 @@ Character::Character(std::string name) : ICharacter(), _name(name), _nbr_materia
 }
 
 Character::Character(const Character &src) : ICharacter() {
+	for (int i = 0; i < 4; ++i)
+	{
+		_inventory[i] = NULL;
+	}
 	(*this) = src;
 }
 
@@ -23,12 +27,26 @@ Character &Character::operator=(const Character &rhs) {
 	if (&rhs != this)
 	{
 		_name = rhs._name;
+		_nbr_materia = rhs._nbr_materia;
+		for (int i = 0; i < 4; ++i)
+		{
+			if (_inventory[i])
+				delete _inventory[i];
+			if (rhs._inventory[i])
+				_inventory[i] = rhs._inventory[i]->clone();
+			else
+				_inventory[i] = NULL;
+		}
 	}
 	return (*this);
 }
 
 Character::~Character() {
-	delete [] *_inventory;
+	for (int i = 0; i < 4; ++i)
+	{
+		if (_inventory[i])
+			delete _inventory[i];
+	}
 }
 
 ICharacter::~ICharacter() {}

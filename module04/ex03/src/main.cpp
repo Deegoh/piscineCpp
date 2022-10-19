@@ -10,31 +10,45 @@ int main() {
 	src->learnMateria(new Cure());
 
 	ICharacter* me = new Character("me");
-	std::cout << me->getName() << std::endl; // rm l
 
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
 	AMateria* ground;
 	ground = me->getPtr(0);
 	me->unequip(0);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	me->unequip(1);
+	delete ground;
 
 	ICharacter* bob = new Character("bob");
-	std::cout << bob->getName() << std::endl; // rm l
+	{
+		Character* deegoh = new Character("Deegoh");
+		deegoh->equip(tmp);
+		Character* doppelganger = new Character(*deegoh);
+		doppelganger->use(0, *deegoh);
+		deegoh->unequip(0);
+		delete doppelganger;
+		delete deegoh;
+	}
+	{
+		Character* deegoh;
+		deegoh = new Character("Deegoh");
+		deegoh->equip(tmp);
+		Character* doppelganger = new Character(*deegoh);
+		doppelganger->use(0, *deegoh);
+		deegoh->unequip(0);
+		delete doppelganger;
+		delete deegoh;
+	}
 
-	me->use(0, *bob);
+	me->use(2, *bob);
 	me->use(1, *bob);
 
 	delete bob;
 	delete me;
 	delete src;
-	delete ground;
 	return (0);
 }
