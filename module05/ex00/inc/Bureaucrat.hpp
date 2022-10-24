@@ -15,8 +15,8 @@ public:
 
 	std::string getName() const;
 	int getGrade() const;
-	void incrementGrade(int value);
-	void decrementGrade(int value);
+	void incrementGrade();
+	void decrementGrade();
 
 class GradeTooHighException: public std::exception
 {
