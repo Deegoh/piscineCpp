@@ -6,12 +6,12 @@ WrongDog::WrongDog() : WrongAnimal() {
 }
 
 WrongDog::WrongDog(const WrongDog &src) : WrongAnimal() {
-	std::cout << "WrongCat Copy Called" << std::endl;
+	std::cout << "WrongDog Copy Called" << std::endl;
 	(*this) = src;
 }
 
 WrongDog &WrongDog::operator=(const WrongDog &rhs) {
-	std::cout << "WrongCat = Called" << std::endl;
+	std::cout << "WrongDog = Called" << std::endl;
 	if (this != &rhs)
 	{
 		WrongAnimal::operator=(rhs);
@@ -20,7 +20,7 @@ WrongDog &WrongDog::operator=(const WrongDog &rhs) {
 }
 
 WrongDog::~WrongDog() {
-	std::cout << "WrongCat Destructor Called" << std::endl;
+	std::cout << "WrongDog Destructor Called" << std::endl;
 }
 
 void WrongDog::makeSound() const {
