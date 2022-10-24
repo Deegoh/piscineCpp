@@ -1,9 +1,22 @@
 #include <iostream>
 
-#include "Bureaucrat.hpp"
+#include "../inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
 
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+void ex00();
+void ex01();
 
 int main() {
+//	ex00();
+	ex01();
+}
+
+void ex01() {}
+
+void ex00() {
 	{
 		std::cout << "normal case" << std::endl;
 		try {
