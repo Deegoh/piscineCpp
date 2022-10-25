@@ -1,5 +1,4 @@
 #include "Form.hpp"
-#include "../inc/Form.hpp"
 
 Form::Form() :
 		_name("low"),

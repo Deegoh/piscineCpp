@@ -1,8 +1,5 @@
 #include <iostream>
 
-#include "../inc/Bureaucrat.hpp"
-#include "../inc/Form.hpp"
-
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
@@ -83,6 +80,8 @@ void ex01() {
 		{
 			Form high = Form("high", 1, 1);
 			Form low = Form("low", 150, 150);
+			std::cout << high << std::endl;
+			std::cout << low << std::endl;
 		}
 		catch (Form::GradeTooLowException &gtle)
 		{
