@@ -12,16 +12,16 @@ CFLAGS += -g -fsanitize=address
 SRC_DIR = src/
 _SRC =	main.cpp\
 		Bureaucrat.cpp\
-		Form.cpp
+		AForm.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
 HEADER=	Bureaucrat.hpp\
-		Form.hpp
+		AForm.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
-NAME = form
+NAME = specialForm
 
 OBJ_DIR = obj/
 _OBJ = $(_SRC:.cpp=.o)
