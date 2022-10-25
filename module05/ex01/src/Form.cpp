@@ -29,21 +29,37 @@ Form::~Form() {
 }
 
 void Form::beSigned(Bureaucrat &src) {
-//	if (src.getGrade() <= _requirementSigned)
-//	{
-//		std::cout << src.getName()
-//				  << " signed "
-//				  << _name << std::endl;
-//	}
-//	else
-//	{
-//		std::cout << src.getName()
-//				  << " couldn’t sign "
-//				  << _name
-//				  << " because"
-////				  TODO reason
-//				  << ""<< std::endl;
-//	}
+	if (src.getGrade() <= _requirementSigned)
+	{
+		_signed = !_signed;
+		std::cout << src.getName()
+				  << " signed "
+				  << _name << std::endl;
+	}
+	else
+	{
+		std::cout << src.getName()
+				  << " couldn’t sign "
+				  << _name
+				  << " because grade is to low."
+				  << std::endl;
+	}
+}
+
+std::string getName() const {
+	return (_name);
+}
+
+bool getSigned() const {
+
+}
+
+int getRequirementSigned() const {
+
+}
+
+int getRequirementExec() const {
+
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &rhs) {
