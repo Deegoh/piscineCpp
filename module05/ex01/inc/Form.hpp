@@ -1,10 +1,12 @@
+class Form;
 #ifndef FORM_HPP
 # define FORM_HPP
 
 # include <string>
 # include <ostream>
 # include <stdexcept>
-#include "Bureaucrat.hpp"
+
+# include "Bureaucrat.hpp"
 
 class Form {
 public:
@@ -18,8 +20,8 @@ public:
 
 	std::string getName() const;
 	bool getSigned() const;
-	int getRequirementSigned() const;
-	int getRequirementExec() const;
+	int getGradeRequirementSigned() const;
+	int getGradeRequirementExec() const;
 
 class GradeTooHighException : public std::exception {
 public:
@@ -34,8 +36,8 @@ public:
 private:
 	const std::string _name;
 	bool _signed;
-	const int _requirementSigned;
-	const int _requirementExec;
+	const int _gradeRequirementSigned;
+	const int _gradeRequirementExec;
 };
 
 std::ostream &operator<<(std::ostream &os, const Form &rhs);

@@ -1,9 +1,9 @@
 CC = c++
-ifeq ($(shell uname), Linux)
-	CC = g++
-else
-	CC = g++-12
-endif
+#ifeq ($(shell uname), Linux)
+#	CC = g++
+#else
+#	CC = g++-12
+#endif
 RM = rm -rf
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CFLAGS += -pedantic
@@ -21,7 +21,7 @@ HEADER=	Bureaucrat.hpp\
 		Form.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
-NAME = bureaucrat
+NAME = form
 
 OBJ_DIR = obj/
 _OBJ = $(_SRC:.cpp=.o)

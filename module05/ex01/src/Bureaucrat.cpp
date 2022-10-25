@@ -1,12 +1,11 @@
 #include "../inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() {
-	std::cout << "construct" << std::endl;
+//	std::cout << "construct" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
-	std::cout << "construct" << std::endl;
-
+//	std::cout << "construct" << std::endl;
 	if (grade < 1)
 	{
 		throw Bureaucrat::GradeTooHighException();
@@ -21,8 +20,8 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	}
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src) {
-	std::cout << "copy" << std::endl;
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src.getName()) {
+//	std::cout << "copy" << std::endl;
 	(*this) = src;
 }
 
@@ -35,7 +34,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &rhs) {
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "destruct" << std::endl;
+//	std::cout << "destruct" << std::endl;
 }
 
 std::string Bureaucrat::getName() const {return (_name);}
@@ -64,11 +63,22 @@ void Bureaucrat::decrementGrade() {
 	}
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs)
-{
-	os	<< rhs.getName() << ", bureaucrat grade "
-		<< rhs.getGrade() << ".";
-	return (os);
+void Bureaucrat::signForm(Form &src) {
+	if (_grade <= src.getGradeRequirementSigned())
+	{
+		src.beSigned((*this));
+		std::cout << _name
+				  << " signed "
+				  << src.getName() << std::endl;
+	}
+	else
+	{
+		std::cout << _name
+				  << " couldn’t sign "
+				  << src.getName()
+				  << " because grade is to low."
+				  << std::endl;
+	}
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
@@ -77,4 +87,11 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Grade is to low !");
+}
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs)
+{
+	os	<< rhs.getName() << ", bureaucrat grade "
+		  << rhs.getGrade() << ".";
+	return (os);
 }
