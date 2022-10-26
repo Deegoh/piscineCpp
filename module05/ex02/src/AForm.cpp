@@ -1,14 +1,6 @@
 #include "AForm.hpp"
 #include "../inc/AForm.hpp"
 
-AForm::AForm() :
-		_name("low"),
-		_signed(false),
-		_gradeRequirementSigned(150),
-		_gradeRequirementExec(150) {
-//	std::cout << "construct form" << std::endl;
-}
-
 AForm::AForm(std::string name, int requirementSigned, int requirementExec) :
 			_name(name),
 			_signed(false),
@@ -22,27 +14,11 @@ AForm::AForm(std::string name, int requirementSigned, int requirementExec) :
 	{
 		throw AForm::GradeTooLowException();
 	}
-//	std::cout << "construct form" << std::endl;
-}
-
-AForm::AForm(const AForm &src) :
-		_name(src.getName()),
-		_gradeRequirementSigned(src.getGradeRequirementSigned()),
-		_gradeRequirementExec(src.getGradeRequirementExec()) {
-//	std::cout << "copy form" << std::endl;
-	(*this) = src;
-}
-
-AForm &AForm::operator=(const AForm &rhs) {
-	if (this != &rhs)
-	{
-		_signed = rhs._signed;
-	}
-	return (*this);
+//	std::cout << "construct aform " << _name << std::endl;
 }
 
 AForm::~AForm() {
-//	std::cout << "destruct form" << std::endl;
+//	std::cout << "destruct aform" << std::endl;
 }
 
 void AForm::beSigned(Bureaucrat &src) {
@@ -54,6 +30,10 @@ void AForm::beSigned(Bureaucrat &src) {
 	{
 		throw AForm::GradeTooLowException();
 	}
+}
+
+void AForm::execute(const Bureaucrat &executor) {
+	(void)executor;
 }
 
 std::string AForm::getName() const {
@@ -79,6 +59,11 @@ const char* AForm::GradeTooLowException::what() const throw() {
 const char* AForm::GradeTooHighException::what() const throw() {
 	return ("Grade is to High !");
 }
+
+const char* AForm::SignException::what() const throw() {
+	return ("Form isn't signed");
+}
+
 std::ostream &operator<<(std::ostream &os, const AForm &rhs) {
 	std::string isSigned;
 	if (rhs.getSigned())

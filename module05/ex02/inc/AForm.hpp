@@ -3,20 +3,19 @@ class AForm;
 # define FORM_HPP
 
 # include <string>
-# include <ostream>
+# include <iostream>
+# include <fstream>
 # include <stdexcept>
 
 # include "Bureaucrat.hpp"
 
 class AForm {
 public:
-	AForm();
 	AForm(std::string name, int requirementSigned, int requirementExec);
-	AForm(const AForm &src);
-	AForm &operator=(const AForm &rhs);
-	~AForm();
+	virtual ~AForm();
 
 	void beSigned(Bureaucrat &src);
+	virtual void execute(const Bureaucrat &executor) = 0;
 
 	std::string getName() const;
 	bool getSigned() const;
@@ -29,6 +28,11 @@ public:
 };
 
 class GradeTooLowException : public std::exception {
+public:
+	virtual const char* what() const throw();
+};
+
+class SignException : public std::exception {
 public:
 	virtual const char* what() const throw();
 };

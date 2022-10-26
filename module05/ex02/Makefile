@@ -12,13 +12,15 @@ CFLAGS += -g -fsanitize=address
 SRC_DIR = src/
 _SRC =	main.cpp\
 		Bureaucrat.cpp\
-		AForm.cpp
+		AForm.cpp\
+		ShrubberyCreationForm.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
 HEADER=	Bureaucrat.hpp\
-		AForm.hpp
+		AForm.hpp\
+		ShrubberyCreationForm.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = specialForm
