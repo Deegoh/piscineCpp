@@ -14,7 +14,8 @@ _SRC =	main.cpp\
 		Bureaucrat.cpp\
 		AForm.cpp\
 		ShrubberyCreationForm.cpp\
-		RobotomyRequestForm.cpp
+		RobotomyRequestForm.cpp\
+		PresidentialPardonForm.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
@@ -22,7 +23,8 @@ INC_DIR = inc/
 HEADER=	Bureaucrat.hpp\
 		AForm.hpp\
 		ShrubberyCreationForm.hpp\
-		RobotomyRequestForm.hpp
+		RobotomyRequestForm.hpp\
+		PresidentialPardonForm.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = specialForm

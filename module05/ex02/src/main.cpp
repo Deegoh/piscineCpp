@@ -4,17 +4,20 @@
 #include "../inc/Bureaucrat.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
 #include "../inc/RobotomyRequestForm.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void ex00();
 void ex01();
 void ex02();
 void shrubberyCreationForm();
 void robotomyRequestForm();
+void presidentialPardonForm();
 
 int main() {
 //	ex00();
@@ -24,7 +27,83 @@ int main() {
 
 void ex02() {
 //	shrubberyCreationForm();
-	robotomyRequestForm();
+//	robotomyRequestForm();
+	presidentialPardonForm();
+}
+
+void presidentialPardonForm() {
+	{
+		std::cout << "copy case" << std::endl;
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 2);
+		PresidentialPardonForm sf = PresidentialPardonForm("Capitain");
+		std::cout << sf << std::endl;
+		deegoh.signForm(sf);
+		std::cout << sf << std::endl;
+		PresidentialPardonForm cpy = PresidentialPardonForm(sf);
+		std::cout << cpy << std::endl;
+		PresidentialPardonForm cpy1;
+		cpy1 = PresidentialPardonForm(sf);
+		std::cout << cpy1 << std::endl;
+		AForm *cpy2 = new PresidentialPardonForm(sf);
+		std::cout << *cpy2 << std::endl;
+		delete cpy2;
+		AForm *cpy3;
+		cpy3 = new PresidentialPardonForm(sf);
+		std::cout << *cpy3 << std::endl;
+		delete cpy3;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "exec PresidentialPardonForm" << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 20);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 2);
+		AForm *scf = new PresidentialPardonForm("Capitain");
+		deegoh.signForm(*scf);
+		scf->execute(deegoh);
+		delete scf;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "Exec Bureaucrat PresidentialPardonForm " << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 20);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 2);
+		AForm *scf = new PresidentialPardonForm("Capitain");
+		deegoh.signForm(*scf);
+		deegoh.executeForm(*scf);
+		delete scf;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "unvalid Exec Bureaucrat PresidentialPardonForm " << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 20);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 2);
+		AForm *scf = new PresidentialPardonForm("Capitain");
+		{
+			try
+			{
+				sign.executeForm(*scf);
+			}
+			catch (PresidentialPardonForm::SignException &se)
+			{
+				std::cout << se.what() << std::endl;
+			}
+		}
+		{
+			try
+			{
+				sign.signForm(*scf);
+				useless.executeForm(*scf);
+			}
+			catch (PresidentialPardonForm::GradeTooLowException &gtle)
+			{
+				std::cout << gtle.what() << std::endl;
+			}
+		}
+		delete scf;
+	}
 }
 
 void robotomyRequestForm() {
