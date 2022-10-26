@@ -13,14 +13,16 @@ SRC_DIR = src/
 _SRC =	main.cpp\
 		Bureaucrat.cpp\
 		AForm.cpp\
-		ShrubberyCreationForm.cpp
+		ShrubberyCreationForm.cpp\
+		RobotomyRequestForm.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
 HEADER=	Bureaucrat.hpp\
 		AForm.hpp\
-		ShrubberyCreationForm.hpp
+		ShrubberyCreationForm.hpp\
+		RobotomyRequestForm.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = specialForm

@@ -1,6 +1,12 @@
 #include "AForm.hpp"
 #include "../inc/AForm.hpp"
 
+AForm::AForm() :
+			_name("AForm"),
+			_signed(false),
+			_gradeRequirementSigned(150),
+			_gradeRequirementExec(150){}
+
 AForm::AForm(std::string name, int requirementSigned, int requirementExec) :
 			_name(name),
 			_signed(false),
@@ -15,6 +21,21 @@ AForm::AForm(std::string name, int requirementSigned, int requirementExec) :
 		throw AForm::GradeTooLowException();
 	}
 //	std::cout << "construct aform " << _name << std::endl;
+}
+
+AForm::AForm(const AForm &src) :
+			_name(src._name),
+			_gradeRequirementSigned(src._gradeRequirementSigned),
+			_gradeRequirementExec(src._gradeRequirementExec){
+	(*this) = src;
+}
+
+AForm &AForm::operator=(const AForm &rhs) {
+	if (&rhs != this)
+	{
+		_signed = rhs._signed;
+	}
+	return ((*this));
 }
 
 AForm::~AForm() {
@@ -32,7 +53,7 @@ void AForm::beSigned(Bureaucrat &src) {
 	}
 }
 
-void AForm::execute(const Bureaucrat &executor) {
+void AForm::execute(const Bureaucrat &executor) const {
 	(void)executor;
 }
 

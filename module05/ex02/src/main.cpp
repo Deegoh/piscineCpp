@@ -1,16 +1,20 @@
+#include "../inc/AForm.hpp"
 #include <iostream>
 
 #include "../inc/Bureaucrat.hpp"
-#include "../inc/AForm.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
+#include "../inc/RobotomyRequestForm.hpp"
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 void ex00();
 void ex01();
 void ex02();
+void shrubberyCreationForm();
+void robotomyRequestForm();
 
 int main() {
 //	ex00();
@@ -19,11 +23,93 @@ int main() {
 }
 
 void ex02() {
+//	shrubberyCreationForm();
+	robotomyRequestForm();
+}
 
+void robotomyRequestForm() {
 	{
 		std::cout << "copy case" << std::endl;
 		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
-		ShrubberyCreationForm sf = ShrubberyCreationForm("testSF");
+		RobotomyRequestForm sf = RobotomyRequestForm("Deebot");
+		std::cout << sf << std::endl;
+		deegoh.signForm(sf);
+		std::cout << sf << std::endl;
+		RobotomyRequestForm cpy = RobotomyRequestForm(sf);
+		std::cout << cpy << std::endl;
+		RobotomyRequestForm cpy1;
+		cpy1 = RobotomyRequestForm(sf);
+		std::cout << cpy1 << std::endl;
+		AForm *cpy2 = new RobotomyRequestForm(sf);
+		std::cout << *cpy2 << std::endl;
+		delete cpy2;
+		AForm *cpy3;
+		cpy3 = new RobotomyRequestForm(sf);
+		std::cout << *cpy3 << std::endl;
+		delete cpy3;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "exec RobotomyRequestForm" << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 70);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
+		AForm *scf = new RobotomyRequestForm("Deebot");
+		deegoh.signForm(*scf);
+		scf->execute(deegoh);
+		delete scf;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "Exec Bureaucrat RobotomyRequestForm " << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 70);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
+		AForm *scf = new RobotomyRequestForm("Deebot");
+		deegoh.signForm(*scf);
+		deegoh.executeForm(*scf);
+		deegoh.executeForm(*scf);
+		deegoh.executeForm(*scf);
+		deegoh.executeForm(*scf);
+		delete scf;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "unvalid Exec Bureaucrat RobotomyRequestForm " << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 70);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
+		AForm *scf = new RobotomyRequestForm("Deebot");
+		{
+			try
+			{
+				sign.executeForm(*scf);
+			}
+			catch (RobotomyRequestForm::SignException &se)
+			{
+				std::cout << se.what() << std::endl;
+			}
+		}
+		{
+			try
+			{
+				sign.signForm(*scf);
+				useless.executeForm(*scf);
+			}
+			catch (RobotomyRequestForm::GradeTooLowException &gtle)
+			{
+				std::cout << gtle.what() << std::endl;
+			}
+		}
+		delete scf;
+	}
+}
+
+void shrubberyCreationForm() {
+	{
+		std::cout << "copy case" << std::endl;
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
+		ShrubberyCreationForm sf = ShrubberyCreationForm("Jardin");
 		std::cout << sf << std::endl;
 		deegoh.signForm(sf);
 		std::cout << sf << std::endl;
@@ -42,13 +128,54 @@ void ex02() {
 	}
 	std::cout << std::endl;
 	{
-		std::cout << "exec Shrubbery" << std::endl;
-		Bureaucrat useless = Bureaucrat("useless", 150);
-		Bureaucrat sign = Bureaucrat("sign", 140);
+		std::cout << "exec ShrubberyForm" << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 140);
 		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
-		AForm *scf = new ShrubberyCreationForm("jardin");
+		AForm *scf = new ShrubberyCreationForm("Jardin");
 		deegoh.signForm(*scf);
 		scf->execute(deegoh);
+		delete scf;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "Exec Bureaucrat ShrubberyForm " << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 140);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
+		AForm *scf = new ShrubberyCreationForm("Jardin");
+		deegoh.signForm(*scf);
+		deegoh.executeForm(*scf);
+		delete scf;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << "unvalid Exec Bureaucrat ShrubberyForm " << std::endl;
+		Bureaucrat useless = Bureaucrat("Useless", 150);
+		Bureaucrat sign = Bureaucrat("Signer", 140);
+		Bureaucrat deegoh = Bureaucrat("Deegoh", 20);
+		AForm *scf = new ShrubberyCreationForm("Jardin");
+		{
+			try
+			{
+				sign.executeForm(*scf);
+			}
+			catch (ShrubberyCreationForm::SignException &se)
+			{
+				std::cout << se.what() << std::endl;
+			}
+		}
+		{
+			try
+			{
+				sign.signForm(*scf);
+				useless.executeForm(*scf);
+			}
+			catch (ShrubberyCreationForm::GradeTooLowException &gtle)
+			{
+				std::cout << gtle.what() << std::endl;
+			}
+		}
 		delete scf;
 	}
 }

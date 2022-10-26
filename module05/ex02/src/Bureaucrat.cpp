@@ -1,5 +1,6 @@
 #include "Bureaucrat.hpp"
 #include "../inc/Bureaucrat.hpp"
+#include "../inc/ShrubberyCreationForm.hpp"
 
 Bureaucrat::Bureaucrat() {
 //	std::cout << "construct" << std::endl;
@@ -83,7 +84,7 @@ void Bureaucrat::signForm(AForm &src) {
 }
 
 void Bureaucrat::executeForm(const AForm &form) {
-	(void)form;
+	form.execute((*this));
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {

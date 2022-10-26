@@ -1,7 +1,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "../inc/ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyForm", 145, 137), _target("Default") {
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyForm", 145, 137), _target("DefaultTarget") {
 //	std::cout << "construct sf default" << std::endl;
 }
 
@@ -20,7 +20,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 //	std::cout << "copy =" << std::endl;
 	if (this != &rhs)
 	{
-//		AForm::operator=(rhs);
+		AForm::operator=(rhs);
 		_target = rhs._target;
 	}
 	return (*this);
@@ -30,7 +30,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 //	std::cout << "destruct sf" << std::endl;
 }
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor) {
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	std::string trees = "            ,@@@@@@@,\n";
 				trees += "    ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
 				trees += " ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";

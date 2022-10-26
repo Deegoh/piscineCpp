@@ -11,11 +11,14 @@ class AForm;
 
 class AForm {
 public:
+	AForm();
 	AForm(std::string name, int requirementSigned, int requirementExec);
+	AForm(const AForm &src);
+	AForm &operator=(const AForm &rhs);
 	virtual ~AForm();
 
 	void beSigned(Bureaucrat &src);
-	virtual void execute(const Bureaucrat &executor) = 0;
+	virtual void execute(const Bureaucrat &executor) const = 0;
 
 	std::string getName() const;
 	bool getSigned() const;
