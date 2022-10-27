@@ -256,7 +256,7 @@ void all() {
 			rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 			std::cout << std::endl;
 
-			if (rrf != nullptr)
+			if (rrf != NULL)
 			{
 				bill.signForm(*rrf);
 				bill.executeForm(*rrf);
@@ -270,7 +270,7 @@ void all() {
 			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 			std::cout << std::endl;
 
-			if (rrf != nullptr)
+			if (rrf != NULL)
 			{
 				bill.signForm(*rrf);
 				bill.executeForm(*rrf);
@@ -284,7 +284,7 @@ void all() {
 			rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 			std::cout << std::endl;
 
-			if (rrf != nullptr)
+			if (rrf != NULL)
 			{
 				bill.signForm(*rrf);
 				bill.executeForm(*rrf);
@@ -299,7 +299,7 @@ void all() {
 											"Not exists");
 			std::cout << std::endl;
 
-			if (rrf != nullptr)
+			if (rrf != NULL)
 			{
 				bill.signForm(*rrf);
 				bill.executeForm(*rrf);
@@ -323,7 +323,7 @@ void ex03 () {
 	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 	std::cout << std::endl;
 
-	if (rrf != nullptr)
+	if (rrf != NULL)
 	{
 		bill.signForm(*rrf);
 		bill.executeForm(*rrf);
@@ -337,7 +337,7 @@ void ex03 () {
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	std::cout << std::endl;
 
-	if (rrf != nullptr)
+	if (rrf != NULL)
 	{
 		bill.signForm(*rrf);
 		bill.executeForm(*rrf);
@@ -351,7 +351,7 @@ void ex03 () {
 	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 	std::cout << std::endl;
 
-	if (rrf != nullptr)
+	if (rrf != NULL)
 	{
 		bill.signForm(*rrf);
 		bill.executeForm(*rrf);
@@ -366,7 +366,7 @@ void ex03 () {
 									"Not exists");
 	std::cout << std::endl;
 
-	if (rrf != nullptr)
+	if (rrf != NULL)
 	{
 		bill.signForm(*rrf);
 		bill.executeForm(*rrf);

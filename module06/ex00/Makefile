@@ -10,26 +10,15 @@ CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
-_SRC =	main.cpp\
-		Bureaucrat.cpp\
-		AForm.cpp\
-		ShrubberyCreationForm.cpp\
-		RobotomyRequestForm.cpp\
-		PresidentialPardonForm.cpp\
-		Intern.cpp
+_SRC =	main.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
-HEADER=	Bureaucrat.hpp\
-		AForm.hpp\
-		ShrubberyCreationForm.hpp\
-		RobotomyRequestForm.hpp\
-		PresidentialPardonForm.hpp\
-		Intern.hpp
+HEADER=
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
-NAME = intern
+NAME = conv
 
 OBJ_DIR = obj/
 _OBJ = $(_SRC:.cpp=.o)
