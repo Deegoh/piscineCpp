@@ -5,18 +5,376 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void ex00();
 void ex01();
 void ex02();
+void ex03();
 void shrubberyCreationForm();
 void robotomyRequestForm();
 void presidentialPardonForm();
+void all();
 
 int main() {
 //	ex00();
 //	ex01();
-	ex02();
+//	ex02();
+//	ex03();
+	all();
+}
+
+void all() {
+	{
+		{
+			Bureaucrat bill = Bureaucrat("bill", 10);
+			Bureaucrat *bob;
+			try
+			{
+				bob = new Bureaucrat("bob", -1);
+				delete bob;
+			}
+			catch (Bureaucrat::GradeTooHighException &e)
+			{
+				std::cout << "Error 1 " << e.what() << std::endl;
+			}
+			catch (Bureaucrat::GradeTooLowException &e)
+			{
+				std::cout << "Error 2 " << e.what() << std::endl;
+			}
+			try
+			{
+				bob = new Bureaucrat("bob", 320);
+				delete bob;
+			}
+			catch (Bureaucrat::GradeTooHighException &e)
+			{
+				std::cout << "Error 1 " << e.what() << std::endl;
+			}
+			catch (Bureaucrat::GradeTooLowException &e)
+			{
+				std::cout << "Error 2 " << e.what() << std::endl;
+			}
+			try
+			{
+				bob = new Bureaucrat("bob", 320);
+				delete bob;
+			}
+			catch (std::exception &e)
+			{
+				std::cout << "Error 0 " << e.what() << std::endl;
+			}
+			try
+			{
+				bob = new Bureaucrat("bob", 42);
+				std::cout << *bob << std::endl;
+				delete bob;
+			}
+			catch (Bureaucrat::GradeTooHighException &e)
+			{
+				std::cout << "Error 1 " << e.what() << std::endl;
+			}
+			catch (Bureaucrat::GradeTooLowException &e)
+			{
+				std::cout << "Error 2 " << e.what() << std::endl;
+			}
+		}
+		std::cout << std::endl << "END PART 1" << std::endl << std::endl;
+/*	{
+
+		Bureaucrat bill = Bureaucrat("bill", 10);
+		Bureaucrat *bob = new Bureaucrat("bob", 42);
+
+		Form *impot;
+
+		try
+		{
+			impot = new Form("impot", 160, 22);
+			std::cout << "DEBUG impot created" << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error 0 " << e.what() << std::endl;
+		}
+
+		try
+		{
+			impot = new Form("impot", 32, -1);
+			std::cout << "DEBUG impot created" << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error 0 " << e.what() << std::endl;
+		}
+
+		try
+		{
+			impot = new Form("impot", 32, 22);
+			std::cout << "DEBUG impot created" << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error 0 " << e.what() << std::endl;
+		}
+		std::cout << std::endl;
+
+
+		try
+		{
+			impot->beSigned(*bob);
+			std::cout << "DEBUG bob signed impot" << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error 0 " << e.what() << std::endl;
+		}
+
+
+		std::cout << *impot << std::endl;
+
+		try
+		{
+			impot->beSigned(bill);
+			std::cout << "DEBUG bill signed impot" << std::endl;
+		}
+		catch (std::exception& e)
+		{
+			std::cout << "Error 0 " << e.what() << std::endl;
+		}
+
+		std::cout << *impot << std::endl;
+
+
+		bob->signForm(*impot);
+		bill.signForm(*impot);
+
+		Form *paie = new Form("Paie", 10, 10);
+		*paie = *impot;
+
+		delete bob;
+		delete impot;
+
+		std::cout << *paie << std::endl;
+		delete paie;
+	}
+
+	std::cout << std::endl << "END PART 2" << std::endl << std::endl;
+*/
+
+		{
+			Bureaucrat useless = Bureaucrat("useless", 150);
+			Bureaucrat cansign = Bureaucrat("cansign", 140);
+			Bureaucrat bill = Bureaucrat("bill", 10);
+
+			ShrubberyCreationForm *newform = new ShrubberyCreationForm(
+					"testfile");
+			bill.signForm(*newform);
+
+			ShrubberyCreationForm newform2 = *newform;
+			delete newform;
+
+			std::cout << std::endl;
+
+			std::cout << "end now" << std::endl;
+			useless.signForm(newform2);
+			useless.executeForm(newform2);
+			std::cout << "dont print that" << std::endl;
+
+			cansign.signForm(newform2);
+			cansign.executeForm(newform2);
+
+			bill.signForm(newform2);
+			bill.executeForm(newform2);
+			std::cout << std::endl;
+		}
+
+		std::cout << std::endl << "END PART 3" << std::endl << std::endl;
+
+
+		{
+			Bureaucrat useless = Bureaucrat("useless", 150);
+			Bureaucrat cansign = Bureaucrat("cansign", 60);
+			Bureaucrat bill = Bureaucrat("bill", 10);
+
+			RobotomyRequestForm *newform = new RobotomyRequestForm("eduardo");
+
+			std::cout << std::endl;
+
+			useless.signForm(*newform);
+			useless.executeForm(*newform);
+
+			cansign.signForm(*newform);
+			cansign.executeForm(*newform);
+
+			bill.signForm(*newform);
+			bill.executeForm(*newform);
+
+			bill.executeForm(*newform);
+			bill.executeForm(*newform);
+			bill.executeForm(*newform);
+			bill.executeForm(*newform);
+			bill.executeForm(*newform);
+			std::cout << std::endl;
+
+			delete newform;
+		}
+
+		std::cout << std::endl << "END PART 4" << std::endl << std::endl;
+
+		{
+			Bureaucrat useless = Bureaucrat("useless", 150);
+			Bureaucrat cansign = Bureaucrat("cansign", 10);
+			Bureaucrat bill = Bureaucrat("bill", 1);
+
+			PresidentialPardonForm *newform = new PresidentialPardonForm(
+					"eduardo");
+
+			std::cout << std::endl;
+
+			useless.signForm(*newform);
+			useless.executeForm(*newform);
+
+			cansign.signForm(*newform);
+			cansign.executeForm(*newform);
+
+			bill.signForm(*newform);
+			bill.executeForm(*newform);
+			std::cout << std::endl;
+
+			delete newform;
+		}
+
+		std::cout << std::endl << "END PART 5" << std::endl << std::endl;
+
+
+		{
+			Bureaucrat bill = Bureaucrat("bill", 1);
+
+			Intern someRandomIntern;
+
+			AForm *rrf;
+			rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+			std::cout << std::endl;
+
+			if (rrf != nullptr)
+			{
+				bill.signForm(*rrf);
+				bill.executeForm(*rrf);
+				std::cout << std::endl;
+
+				delete rrf;
+			}
+			std::cout << std::endl;
+
+
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			std::cout << std::endl;
+
+			if (rrf != nullptr)
+			{
+				bill.signForm(*rrf);
+				bill.executeForm(*rrf);
+				std::cout << std::endl;
+
+				delete rrf;
+			}
+			std::cout << std::endl;
+
+
+			rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+			std::cout << std::endl;
+
+			if (rrf != nullptr)
+			{
+				bill.signForm(*rrf);
+				bill.executeForm(*rrf);
+				std::cout << std::endl;
+
+				delete rrf;
+			}
+			std::cout << std::endl;
+
+
+			rrf = someRandomIntern.makeForm("blip blap bloup form",
+											"Not exists");
+			std::cout << std::endl;
+
+			if (rrf != nullptr)
+			{
+				bill.signForm(*rrf);
+				bill.executeForm(*rrf);
+				std::cout << std::endl;
+
+				delete rrf;
+			}
+			std::cout << std::endl;
+		}
+
+		std::cout << std::endl << "END PART 6" << std::endl << std::endl;
+	}
+}
+
+void ex03 () {
+	Bureaucrat bill = Bureaucrat("bill", 1);
+
+	Intern someRandomIntern;
+
+	AForm *rrf;
+	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+	std::cout << std::endl;
+
+	if (rrf != nullptr)
+	{
+		bill.signForm(*rrf);
+		bill.executeForm(*rrf);
+		std::cout << std::endl;
+
+		delete rrf;
+	}
+	std::cout << std::endl;
+
+
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	std::cout << std::endl;
+
+	if (rrf != nullptr)
+	{
+		bill.signForm(*rrf);
+		bill.executeForm(*rrf);
+		std::cout << std::endl;
+
+		delete rrf;
+	}
+	std::cout << std::endl;
+
+
+	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+	std::cout << std::endl;
+
+	if (rrf != nullptr)
+	{
+		bill.signForm(*rrf);
+		bill.executeForm(*rrf);
+		std::cout << std::endl;
+
+		delete rrf;
+	}
+	std::cout << std::endl;
+
+
+	rrf = someRandomIntern.makeForm("blip blap bloup form",
+									"Not exists");
+	std::cout << std::endl;
+
+	if (rrf != nullptr)
+	{
+		bill.signForm(*rrf);
+		bill.executeForm(*rrf);
+		std::cout << std::endl;
+
+		delete rrf;
+	}
+	std::cout << std::endl;
 }
 
 void ex02() {

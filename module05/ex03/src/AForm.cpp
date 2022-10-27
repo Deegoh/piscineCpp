@@ -44,7 +44,7 @@ AForm::~AForm() {
 void AForm::beSigned(Bureaucrat &src) {
 	if (src.getGrade() <= _gradeRequirementSigned)
 	{
-		_signed = !_signed;
+		_signed = true;
 	}
 	else
 	{
