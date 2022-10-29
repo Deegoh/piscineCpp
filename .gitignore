@@ -21,12 +21,6 @@
 **/overload
 **/bsp
 
-#module02
-**/claptrap
-**/scavtrap
-**/fragtrap
-**/diamondtrap
-
 #module03
 **/claptrap
 **/scavtrap
@@ -47,7 +41,7 @@
 **/intern
 
 #module06
-**/conv
+**/convert
 
 **/Placeholder
 **/placeholder

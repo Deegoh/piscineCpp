@@ -10,15 +10,16 @@ CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
-_SRC =	main.cpp
+_SRC =	main.cpp\
+		Conv.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
-HEADER=
+HEADER=	Conv.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
-NAME = conv
+NAME = convert
 
 OBJ_DIR = obj/
 _OBJ = $(_SRC:.cpp=.o)
