@@ -5,18 +5,20 @@ else
 	CC = g++-12
 endif
 RM = rm -rf
-CFLAGS = -Werror -Wall -Wextra -std=c++98
-CFLAGS += -pedantic
+CFLAGS = -Werror -Wall -Wextra
+CFLAGS += -std=c++98 -pedantic
 CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
 _SRC =	main.cpp\
-		Conv.cpp
+		conv.cpp\
+		type.cpp\
+		printType.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
-HEADER=	Conv.hpp
+HEADER=	conv.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = convert
