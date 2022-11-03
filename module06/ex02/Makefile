@@ -11,12 +11,20 @@ CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
 _SRC =	main.cpp\
-		Base.cpp
+		Base.cpp\
+		A.cpp\
+		B.cpp\
+		C.cpp\
+		base_utils.cpp
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
-HEADER=	Base.hpp
+HEADER=	Base.hpp\
+		A.hpp\
+		B.hpp\
+		C.hpp\
+		base_utils.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = type

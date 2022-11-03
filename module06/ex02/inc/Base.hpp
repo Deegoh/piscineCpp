@@ -1,7 +1,10 @@
+class Base;
 #ifndef BASE_HPP
 # define BASE_HPP
 
-Class Base {
+# include <iostream>
+
+class Base {
 public:
 	virtual ~Base();
 };
