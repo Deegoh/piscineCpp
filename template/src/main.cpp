@@ -1,5 +1,5 @@
 #include <iostream>
 
 int main() {
-	std::cout << "Helle template" << std::endl;
+	std::cout << "Hello template" << std::endl;
 }
