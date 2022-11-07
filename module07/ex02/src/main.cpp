@@ -10,9 +10,9 @@ int stringMain();
 
 int main()
 {
-	cpyMain();
-	intMain();
-	floatMain();
+//	cpyMain();
+//	intMain();
+//	floatMain();
 	stringMain();
 }
 
@@ -161,10 +161,12 @@ int stringMain()
 	srand(time(NULL));
 	for (int i = 0; i < MAX_VAL; i++)
 	{
+		std::string tmp;
 		std::stringstream ss;
 		ss << rand();
-		ss >> numbers[i];
-		ss >> mirror[i];
+		ss >> tmp;
+		numbers[i] = tmp;
+		mirror[i] = tmp;
 	}
 	//SCOPE
 	{
