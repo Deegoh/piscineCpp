@@ -10,9 +10,9 @@ int stringMain();
 
 int main()
 {
-//	cpyMain();
-//	intMain();
-//	floatMain();
+	cpyMain();
+	intMain();
+	floatMain();
 	stringMain();
 }
 
