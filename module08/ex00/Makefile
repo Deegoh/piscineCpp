@@ -10,12 +10,13 @@ CFLAGS += -pedantic
 CFLAGS += -g -fsanitize=address
 
 SRC_DIR = src/
-_SRC =	main.cpp
+_SRC =	main.cpp\
 
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
 HEADER=	easyfind.hpp
+
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
 NAME = easyfind
