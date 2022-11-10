@@ -12,7 +12,7 @@ int main() {
 		sp.addNumber(11);
 		try
 		{
-			sp.addNumber(42);
+//			sp.addNumber(42);
 		}
 		catch (std::exception &e)
 		{
@@ -51,6 +51,12 @@ int main() {
 		{
 			std::cout << e.what() << std::endl;
 		}
+		sp.printContent();
+	}
+	{
+		std::cout << "span(5){...}" << std::endl;
+		Span sp = Span(5);
+		sp.addNumbers(5, 6, 3, 17, 9, 11);
 		sp.printContent();
 	}
 }

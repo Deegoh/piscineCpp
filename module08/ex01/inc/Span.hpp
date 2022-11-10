@@ -4,6 +4,7 @@
 # include <iostream>
 # include <vector>
 # include <algorithm>
+# include <cstdarg>
 
 class Span {
 public:
@@ -14,6 +15,7 @@ public:
 	~Span();
 
 	void addNumber(int value);
+	void addNumbers(int count, ...);
 	int shortestSpan();
 	int longestSpan();
 

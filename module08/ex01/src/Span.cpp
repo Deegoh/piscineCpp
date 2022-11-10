@@ -33,6 +33,19 @@ void Span::addNumber(int value) {
 	_content.push_back(value);
 }
 
+void Span::addNumbers(int count, ...) {
+	int n = _n;
+	if (count > n)
+		throw std::exception();
+	va_list list;
+	va_start(list, count);
+	for (int i = 0; i < count; i++)
+	{
+		_content.push_back(va_arg(list, int));
+	}
+	va_end(list);
+}
+
 void Span::printContent() {
 	for (unsigned int i = 0; i < _content.size(); ++i)
 	{
@@ -47,7 +60,6 @@ int Span::shortestSpan() {
 	if (_content.size() <= 1)
 		throw std::exception();
 	int delta;
-
 	for (unsigned int i = 0; i < _content.size(); ++i)
 	{
 		for (unsigned int j = i + 1; j < _content.size(); ++j)
