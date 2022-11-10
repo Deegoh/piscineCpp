@@ -2,6 +2,8 @@
 # define SPAN_HPP
 
 # include <iostream>
+# include <vector>
+# include <algorithm>
 
 class Span {
 public:
@@ -10,17 +12,18 @@ public:
 	Span(const Span &src);
 	Span &operator=(const Span &rhs);
 	~Span();
-//	addnumber to array if too much throw
+
 	void addNumber(int value);
-//	return delta if no span or 1 throw
-//	shortestSpan();
-//	longestSpan();
+	int shortestSpan();
+	int longestSpan();
+
+	void printContent();
 
 // ajouter une plage d'iterator
 
 private:
 	unsigned int _n;
-	int *_content;
+	std::vector<int> _content;
 };
 
 #endif
