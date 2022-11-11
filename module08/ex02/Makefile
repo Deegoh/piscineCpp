@@ -15,10 +15,10 @@ _SRC =	main.cpp
 SRC = $(addprefix $(SRC_DIR), $(_SRC))
 
 INC_DIR = inc/
-HEADER=
+HEADER=	MutantStack.hpp
 INC = $(addprefix $(INC_DIR), $(HEADER))
 
-NAME = placeholder
+NAME = mstack
 
 OBJ_DIR = obj/
 _OBJ = $(_SRC:.cpp=.o)
