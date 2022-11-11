@@ -1,9 +1,8 @@
 #include "Span.hpp"
-#include "../inc/Span.hpp"
 
 int main() {
 	{
-		std::cout << "span(5){6, 3, 17, 9, 11} + 42" << std::endl;
+		std::cout << "span(5){6, 3, 17, 9, 11}" << std::endl;
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
@@ -12,9 +11,9 @@ int main() {
 		sp.addNumber(11);
 		try
 		{
-//			sp.addNumber(42);
+			sp.addNumber(42);
 		}
-		catch (std::exception &e)
+		catch (Span::NotEnoughSpace &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
@@ -39,7 +38,7 @@ int main() {
 		{
 			std::cout << sp.shortestSpan() << std::endl;
 		}
-		catch (std::exception &e)
+		catch (Span::NotEnoughNumbers &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
@@ -47,7 +46,7 @@ int main() {
 		{
 			std::cout << sp.longestSpan() << std::endl;
 		}
-		catch (std::exception &e)
+		catch (Span::NotEnoughNumbers &e)
 		{
 			std::cout << e.what() << std::endl;
 		}
@@ -58,5 +57,9 @@ int main() {
 		Span sp = Span(5);
 		sp.addNumbers(5, 6, 3, 17, 9, 11);
 		sp.printContent();
+		Span sp1 = Span(20);
+		sp1.addRangeVector(sp);
+		sp1.addRangeVector(sp);
+		sp1.printContent();
 	}
 }

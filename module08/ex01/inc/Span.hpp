@@ -6,7 +6,13 @@
 # include <algorithm>
 # include <cstdarg>
 
+# include <exception>
+
 class Span {
+private:
+	unsigned int _n;
+	std::vector<int> _content;
+
 public:
 	Span();
 	Span(unsigned int n);
@@ -16,16 +22,25 @@ public:
 
 	void addNumber(int value);
 	void addNumbers(int count, ...);
+	void addRange(int start, int end);
+	void addRangeVector(Span sp);
+
 	int shortestSpan();
 	int longestSpan();
-
 	void printContent();
 
-// ajouter une plage d'iterator
+	class NotEnoughSpace : std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
 
-private:
-	unsigned int _n;
-	std::vector<int> _content;
+	class NotEnoughNumbers : std::exception
+	{
+	public:
+		virtual const char *what() const throw();
+	};
+
 };
 
 #endif
