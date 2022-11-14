@@ -3,6 +3,7 @@
 
 # include <stdexcept>
 # include <iostream>
+# include <algorithm>
 
 template<typename T>
 void display_container(T &container) {
@@ -15,14 +16,11 @@ void display_container(T &container) {
 
 template<typename T>
 void easyfind(T &container, int n) {
-	typename T::iterator ite = container.end();
-	for (typename T::iterator it = container.begin(); it != ite; ++it)
+	typename T::iterator found = std::find(container.begin(), container.end(), n);
+	if (found != container.end())
 	{
-		if (*it == n)
-		{
-			std::cout << *it << std::endl;
-			return;
-		}
+		std::cout << *found << std::endl;
+		return;
 	}
 	throw std::exception();
 }
