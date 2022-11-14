@@ -2,7 +2,7 @@
 
 int main() {
 	{
-		std::cout << "span(5){6, 3, 17, 9, 11}" << std::endl;
+		std::cout << "span(5){6, 3, 17, 9, 11} + 42" << std::endl;
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
